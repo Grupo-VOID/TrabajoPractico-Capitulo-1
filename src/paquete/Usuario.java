@@ -2,28 +2,28 @@ package paquete;
 
 public class Usuario {
 
-	private String nombre;
-	private String tematicaFavorita;
-	private final int MONEDASINICIALES;
+	private final String NOMBRE;
+	private final String TEMATICA_FAVORITA;
+	private final int MONEDAS_INICIALES;
 	private int monedasDisponibles;
-	private double TIEMPOINICIAL;
+	private double TIEMPO_INICIAL;
 	private double tiempoDisponible;
 
 	public Usuario(String nombre, String tematica, int monedas, double tiempo) {
-		this.nombre = nombre;
-		this.tematicaFavorita = tematica;
-		this.MONEDASINICIALES = monedas;
+		this.NOMBRE = nombre;
+		this.TEMATICA_FAVORITA = tematica;
+		this.MONEDAS_INICIALES = monedas;
 		this.monedasDisponibles = monedas;
-		this.TIEMPOINICIAL = tiempo;
+		this.TIEMPO_INICIAL = tiempo;
 		this.tiempoDisponible = tiempo;
 	}
 
 	public String getNombre() {
-		return nombre;
+		return NOMBRE;
 	}
 
 	public String getTematicaFavorita() {
-		return tematicaFavorita;
+		return TEMATICA_FAVORITA;
 	}
 
 	public int getMonedasDisponibles() {
@@ -40,11 +40,11 @@ public class Usuario {
 	// para generar el itinerario final del usuario
 
 	public int monedasUtilizadas() {
-		return this.MONEDASINICIALES - this.monedasDisponibles;
+		return this.MONEDAS_INICIALES - this.monedasDisponibles;
 	}
 
 	public double tiempoUtilizado() {
-		return this.TIEMPOINICIAL - this.tiempoDisponible;
+		return this.TIEMPO_INICIAL - this.tiempoDisponible;
 	}
 
 	// ---------------------------------------------------------------------------------------

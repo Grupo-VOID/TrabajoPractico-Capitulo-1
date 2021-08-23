@@ -4,29 +4,36 @@ public class Atracciones implements Adquiribles {
 
 	// La variable tematica la cree como String ya que nose como lo vamos a hacer al
 	// final.
-	private String tematica;
-	private int costo;
-	private double tiempo;
-	private int cupoMaximo;
+	private final String NOMBRE;
+	private final String TEMATICA;
+	private final int COSTO;
+	private final double DURACION;
+	private final int CUPO_MAXIMO;
 	private int cupoActual = 0;
 
-	public Atracciones(String tematica, int costo, double tiempo, int cupoMaximo) {
-		this.tematica = tematica;
-		this.costo = costo;
-		this.tiempo = tiempo;
-		this.cupoMaximo = cupoMaximo;
+	public Atracciones(String nombre, String tematica, int costo, double duracion, int cupoMaximo) {
+		this.NOMBRE = nombre;
+		this.TEMATICA = tematica;
+		this.COSTO = costo;
+		this.DURACION = duracion;
+		this.CUPO_MAXIMO = cupoMaximo;
 	}
 
 	public int getCosto() {
-		return costo;
+		return COSTO;
 	}
 
 	public double getTiempo() {
-		return tiempo;
+		return DURACION;
 	}
 
 	public String getTematica() {
-		return tematica;
+		return TEMATICA;
+	}
+
+	@Override
+	public String toString() {
+		return NOMBRE;
 	}
 
 	public int getCupoActual() {
@@ -34,7 +41,7 @@ public class Atracciones implements Adquiribles {
 	}
 
 	public boolean hayLugar() {
-		return cupoActual < cupoMaximo;
+		return cupoActual < CUPO_MAXIMO;
 	}
 
 	// comprar no valida si hay lugar antes, ya q se deberia validar antes de

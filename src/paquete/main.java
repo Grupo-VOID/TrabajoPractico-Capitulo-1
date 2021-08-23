@@ -1,5 +1,5 @@
 package paquete;
 
-public class main {
+public class Main {
 
 }
