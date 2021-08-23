@@ -2,7 +2,8 @@ package paquete;
 
 public class Atracciones implements Adquiribles {
 
-	//La variable tematica la cree como String ya que nose como lo vamos a hacer al final.
+	// La variable tematica la cree como String ya que nose como lo vamos a hacer al
+	// final.
 	private String tematica;
 	private int costo;
 	private double tiempo;
@@ -31,13 +32,15 @@ public class Atracciones implements Adquiribles {
 	public int getCupoActual() {
 		return cupoActual;
 	}
-	
+
 	public boolean hayLugar() {
 		return cupoActual < cupoMaximo;
 	}
 
-	//comprar no valida si hay lugar antes, ya q se deberia validar antes de ofrecer la compra, 
-	//"no se puede ofrecer un producto ya adquirido, que este lleno y o no tenga el tiempo o dinero suficiente".
+	// comprar no valida si hay lugar antes, ya q se deberia validar antes de
+	// ofrecer la compra,
+	// "no se puede ofrecer un producto ya adquirido, que este lleno y o no tenga el
+	// tiempo o dinero suficiente".
 	public void comprar() {
 		cupoActual++;
 	}

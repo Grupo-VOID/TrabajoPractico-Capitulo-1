@@ -5,6 +5,8 @@ package paquete;
 public interface Adquiribles {
 
 	public int getCosto();
+
 	public double getTiempo();
+
 	public void comprar();
 }
