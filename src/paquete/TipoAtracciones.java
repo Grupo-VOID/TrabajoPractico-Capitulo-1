@@ -2,8 +2,15 @@ package paquete;
 
 public enum TipoAtracciones {
 	
-	ATRACCION_1, ATRACCION_2, ATRACCION_3, ATRACCION_4;
+	ATRACCION1,
+	ATRACCION2,
+	ATRACCION3,
+	ATRACCION4;
 	
+	@Override
+	public String toString() {
+		return this.name();
+	}
 }
 
 /*Dejo creado el enum con los nombres genericos para ir trabajando con 

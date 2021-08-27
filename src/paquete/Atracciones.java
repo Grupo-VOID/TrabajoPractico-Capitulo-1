@@ -2,10 +2,8 @@ package paquete;
 
 public class Atracciones implements Adquiribles {
 
-	// La variable tematica la cree como String ya que nose como lo vamos a hacer al
-	// final.
 	private final String NOMBRE;
-	private final String TEMATICA;
+	private final TipoAtracciones TEMATICA;
 	private final int COSTO;
 	private final double DURACION;
 	private final int CUPO_MAXIMO;
@@ -13,7 +11,7 @@ public class Atracciones implements Adquiribles {
 
 	public Atracciones(String nombre, String tematica, int costo, double duracion, int cupoMaximo) {
 		this.NOMBRE = nombre;
-		this.TEMATICA = tematica;
+		this.TEMATICA = TipoAtracciones.valueOf(tematica.toUpperCase());
 		this.COSTO = costo;
 		this.DURACION = duracion;
 		this.CUPO_MAXIMO = cupoMaximo;
@@ -26,9 +24,9 @@ public class Atracciones implements Adquiribles {
 	public double getTiempo() {
 		return DURACION;
 	}
-
+	
 	public String getTematica() {
-		return TEMATICA;
+		return TEMATICA.toString();
 	}
 
 	@Override

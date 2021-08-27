@@ -3,7 +3,7 @@ package paquete;
 public class Usuario {
 
 	private final String NOMBRE;
-	private final String TEMATICA_FAVORITA;
+	private final TipoAtracciones TEMATICA_FAVORITA;
 	private final int MONEDAS_INICIALES;
 	private int monedasDisponibles;
 	private double TIEMPO_INICIAL;
@@ -11,7 +11,7 @@ public class Usuario {
 
 	public Usuario(String nombre, String tematica, int monedas, double tiempo) {
 		this.NOMBRE = nombre;
-		this.TEMATICA_FAVORITA = tematica;
+		this.TEMATICA_FAVORITA = TipoAtracciones.valueOf(tematica.toUpperCase());
 		this.MONEDAS_INICIALES = monedas;
 		this.monedasDisponibles = monedas;
 		this.TIEMPO_INICIAL = tiempo;
@@ -21,9 +21,9 @@ public class Usuario {
 	public String getNombre() {
 		return NOMBRE;
 	}
-
-	public String getTematicaFavorita() {
-		return TEMATICA_FAVORITA;
+	
+	public String getTematica() {
+		return TEMATICA_FAVORITA.toString();
 	}
 
 	public int getMonedasDisponibles() {
