@@ -9,9 +9,9 @@ public class Usuario {
 	private double TIEMPO_INICIAL;
 	private double tiempoDisponible;
 
-	public Usuario(String nombre, String tematica, int monedas, double tiempo) {
+	public Usuario(String nombre, TipoAtraccion tematica, int monedas, double tiempo) {
 		this.NOMBRE = nombre;
-		this.TEMATICA_FAVORITA = TipoAtraccion.valueOf(tematica.toUpperCase());
+		this.TEMATICA_FAVORITA = tematica;
 		this.MONEDAS_INICIALES = monedas;
 		this.monedasDisponibles = monedas;
 		this.TIEMPO_INICIAL = tiempo;
