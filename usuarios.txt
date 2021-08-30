@@ -1,0 +1,7 @@
+Nombre, tipo, presupuesto, tiempo
+Ojeda Juan, Aventura, 10, 8
+Martinez Candela, Paisaje, 100, 5
+Quiriconi Estéfano, Degustación, 36, 8
+Bustos Mauro, Paisaje, 120, 6
+Bonilla Iván, Aventura, 200, 10
+Furio Ramiro, Degustación, 300, 4
