@@ -1,22 +1,19 @@
 package paquete;
 
-public abstract class Promocion implements Adquiribles{
+public abstract class Promocion implements Adquiribles {
 
-	
-	public void comprar() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
+	protected Atraccion atraccionOfrecida;
+	protected int costoTotal = 0;
+	protected double duracionTotal = 0;
+
+	public abstract String ofrecerPromocion();
+	// aca no se si esta bien que sea String
+
 	public int getCosto() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.costoTotal;
 	}
-	
-	
+
 	public double getTiempo() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.duracionTotal;
 	}
 }

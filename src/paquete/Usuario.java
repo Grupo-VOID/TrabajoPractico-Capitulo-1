@@ -3,7 +3,7 @@ package paquete;
 public class Usuario {
 
 	private final String NOMBRE;
-	private final TipoAtracciones TEMATICA_FAVORITA;
+	private final TipoAtraccion TEMATICA_FAVORITA;
 	private final int MONEDAS_INICIALES;
 	private int monedasDisponibles;
 	private double TIEMPO_INICIAL;
@@ -11,7 +11,7 @@ public class Usuario {
 
 	public Usuario(String nombre, String tematica, int monedas, double tiempo) {
 		this.NOMBRE = nombre;
-		this.TEMATICA_FAVORITA = TipoAtracciones.valueOf(tematica.toUpperCase());
+		this.TEMATICA_FAVORITA = TipoAtraccion.valueOf(tematica.toUpperCase());
 		this.MONEDAS_INICIALES = monedas;
 		this.monedasDisponibles = monedas;
 		this.TIEMPO_INICIAL = tiempo;

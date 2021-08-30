@@ -1,6 +1,6 @@
 package paquete;
 
-public enum TipoAtracciones {
+public enum TipoAtraccion {
 	
 	ATRACCION1,
 	ATRACCION2,
