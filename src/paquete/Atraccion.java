@@ -9,9 +9,9 @@ public class Atraccion implements Adquiribles {
 	private final int CUPO_MAXIMO;
 	private int cupoActual = 0;
 
-	public Atraccion(String nombre, String tematica, int costo, double duracion, int cupoMaximo) {
+	public Atraccion(String nombre, TipoAtraccion tematica, int costo, double duracion, int cupoMaximo) {
 		this.NOMBRE = nombre;
-		this.TEMATICA = TipoAtraccion.valueOf(tematica.toUpperCase());
+		this.TEMATICA = tematica;
 		this.COSTO = costo;
 		this.DURACION = duracion;
 		this.CUPO_MAXIMO = cupoMaximo;
