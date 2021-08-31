@@ -24,7 +24,7 @@ public class Atraccion implements Adquiribles {
 	public double getTiempo() {
 		return DURACION;
 	}
-	
+
 	public String getTematica() {
 		return TEMATICA.toString();
 	}
@@ -36,6 +36,10 @@ public class Atraccion implements Adquiribles {
 
 	public int getCupoActual() {
 		return cupoActual;
+	}
+
+	public int getCUPO_MAXIMO() {
+		return CUPO_MAXIMO;
 	}
 
 	public boolean hayLugar() {
