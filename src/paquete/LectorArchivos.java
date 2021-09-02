@@ -9,7 +9,7 @@ public class LectorArchivos {
 		LinkedList<Usuario> listaUsuarios = new LinkedList<Usuario>();
 		Scanner archivo = null;
 		try {
-			archivo = new Scanner(new File("usuarios.txt"));
+			archivo = new Scanner(new File("entrada/usuarios.txt"));
 			while (archivo.hasNext()) {
 				String linea = archivo.nextLine();
 				String datosUsuario[] = linea.split(",");
@@ -31,7 +31,7 @@ public class LectorArchivos {
 		LinkedList<Atraccion> listaAtracciones = new LinkedList<Atraccion>();
 		Scanner archivo = null;
 		try {
-			archivo = new Scanner(new File("atracciones.txt"));
+			archivo = new Scanner(new File("entrada/atracciones.txt"));
 			while (archivo.hasNext()) {
 				String linea = archivo.nextLine();
 				String datosAtracciones[] = linea.split(",");
