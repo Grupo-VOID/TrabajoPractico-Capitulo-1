@@ -6,8 +6,9 @@ public class Usuario {
 	private final TipoAtraccion TEMATICA_FAVORITA;
 	private final int MONEDAS_INICIALES;
 	private int monedasDisponibles;
-	private double TIEMPO_INICIAL;
+	private final double TIEMPO_INICIAL;
 	private double tiempoDisponible;
+	public Itinerario itinerarioUsuario;
 
 	public Usuario(String nombre, TipoAtraccion tematica, int monedas, double tiempo) {
 		this.NOMBRE = nombre;
@@ -16,6 +17,7 @@ public class Usuario {
 		this.monedasDisponibles = monedas;
 		this.TIEMPO_INICIAL = tiempo;
 		this.tiempoDisponible = tiempo;
+		this.itinerarioUsuario = new Itinerario();
 	}
 
 	public String getNombre() {
@@ -43,16 +45,12 @@ public class Usuario {
 		return this.MONEDAS_INICIALES - this.monedasDisponibles;
 	}
 
-	public double tiempoUtilizado() {
-		return this.TIEMPO_INICIAL - this.tiempoDisponible;
-	}
-
 	// ---------------------------------------------------------------------------------------
 
-	public void comprar(Adquiribles compra) {
-		this.monedasDisponibles -= compra.getCosto();
-		this.tiempoDisponible -= compra.getTiempo();
-		compra.comprar();
+	public void aceptarSugerencia(Adquirible sugerencia) {
+		this.monedasDisponibles -= sugerencia.getCosto();
+		this.tiempoDisponible -= sugerencia.getTiempo();
+		sugerencia.comprar();
 	}
 
 }
