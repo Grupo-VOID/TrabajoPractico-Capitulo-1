@@ -1,13 +1,13 @@
 package paquete;
 
-public class Atraccion implements Adquiribles {
+public class Atraccion implements Adquirible {
 
 	private final String NOMBRE;
 	private final TipoAtraccion TEMATICA;
 	private final int COSTO;
 	private final double DURACION;
 	private final int CUPO_MAXIMO;
-	private int cupoActual = 0;
+	private int lugaresOcupados = 0;
 
 	public Atraccion(String nombre, TipoAtraccion tematica, int costo, double duracion, int cupoMaximo) {
 		this.NOMBRE = nombre;
@@ -25,8 +25,8 @@ public class Atraccion implements Adquiribles {
 		return DURACION;
 	}
 
-	public String getTematica() {
-		return TEMATICA.toString();
+	public TipoAtraccion getTematica() {
+		return TEMATICA;
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class Atraccion implements Adquiribles {
 	}
 
 	public int getCupoActual() {
-		return cupoActual;
+		return lugaresOcupados;
 	}
 
 	public int getCUPO_MAXIMO() {
@@ -43,7 +43,7 @@ public class Atraccion implements Adquiribles {
 	}
 
 	public boolean hayLugar() {
-		return cupoActual < CUPO_MAXIMO;
+		return lugaresOcupados < CUPO_MAXIMO;
 	}
 
 	// comprar no valida si hay lugar antes, ya q se deberia validar antes de
@@ -51,7 +51,12 @@ public class Atraccion implements Adquiribles {
 	// "no se puede ofrecer un producto ya adquirido, que este lleno y o no tenga el
 	// tiempo o dinero suficiente".
 	public void comprar() {
-		cupoActual++;
+		lugaresOcupados++;
+	}
+
+	@Override
+	public boolean esPromocion() {
+		return false;
 	}
 
 }

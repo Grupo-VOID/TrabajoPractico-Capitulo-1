@@ -1,6 +1,6 @@
 package paquete;
 
-public abstract class Promocion implements Adquiribles {
+public abstract class Promocion implements Adquirible {
 
 	protected Atraccion atraccionOfrecida;
 	protected final TipoAtraccion TEMATICA;
@@ -22,7 +22,12 @@ public abstract class Promocion implements Adquiribles {
 		return this.duracionTotal;
 	}
 
-	public String getTematica() {
-		return TEMATICA.toString();
+	public TipoAtraccion getTematica() {
+		return TEMATICA;
+	}
+	
+	@Override
+	public boolean esPromocion() {
+		return true;
 	}
 }

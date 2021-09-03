@@ -16,7 +16,7 @@ public class PromocionPorcentual extends Promocion {
 
 	@Override
 	public String toString() {
-		return "Procentual";
+		return "Porcentual";
 	}
 
 	@Override
