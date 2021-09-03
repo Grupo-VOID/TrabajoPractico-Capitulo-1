@@ -6,10 +6,16 @@ public class PromocionAbsoluta extends Promocion {
 	private Atraccion atraccionUno;
 	private Atraccion atraccionDos;
 
-	public PromocionAbsoluta(Atraccion atraccion1, Atraccion atraccion2, int descuento) {
+	public PromocionAbsoluta(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, int descuento) {
+		super(tematica);
 		this.atraccionUno = atraccion1;
 		this.atraccionDos = atraccion2;
 		this.descuento = descuento;
+	}
+
+	@Override
+	public String toString() {
+		return "Absoluta";
 	}
 
 	@Override

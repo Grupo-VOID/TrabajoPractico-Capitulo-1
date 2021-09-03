@@ -1,3 +1,3 @@
-Aventura,descuento:20,Bosque Negro;Mordor
-Degustacion,valor_fijo:36,Lothlórien;La Comarca
-Paisaje,promos_gratis:Minas Tirith;Abismo de Helm;Erebor
+Porcentual,Aventura,20,Bosque Negro,Mordor
+Absoluta,Degustación,36,Lothlórien,La Comarca
+AxB,Paisaje,Minas Tirith,Abismo de Helm,Erebor

@@ -49,4 +49,39 @@ public class LectorArchivos {
 		archivo.close();
 		return listaAtracciones;
 	}
+
+	public static ArrayList<Promocion> GenerarPromociones(ParqueAtracciones parque) {
+		ArrayList<Promocion> listaPromociones = new ArrayList<Promocion>();
+		Scanner archivo = null;
+		try {
+			archivo = new Scanner(new File("entrada/promociones.txt"));
+			while (archivo.hasNext()) {
+				String linea = archivo.nextLine();
+				String datosPromociones[] = linea.split(",");
+				TipoPromocion tipoPromo = TipoPromocion.valueOf(datosPromociones[0].toUpperCase());
+				TipoAtraccion tipo = TipoAtraccion.valueOf(datosPromociones[1].toUpperCase());
+				Atraccion atraccion1 = parque.obtenerAtraccionPorNombre(datosPromociones[3]);
+				Atraccion atraccion2 = parque.obtenerAtraccionPorNombre(datosPromociones[4]);
+				if (tipoPromo == TipoPromocion.ABSOLUTA) {
+					int datoRelativo = Integer.parseInt(datosPromociones[2]);
+					PromocionAbsoluta promocion = new PromocionAbsoluta(tipo, atraccion1, atraccion2, datoRelativo);
+					listaPromociones.add(promocion);
+				}
+				if (tipoPromo == TipoPromocion.PORCENTUAL) {
+					int datoRelativo = Integer.parseInt(datosPromociones[2]);
+					PromocionPorcentual promocion = new PromocionPorcentual(tipo, atraccion1, atraccion2, datoRelativo);
+					listaPromociones.add(promocion);
+				}
+				if (tipoPromo == TipoPromocion.AXB) {
+					Atraccion atraccion3 = parque.obtenerAtraccionPorNombre(datosPromociones[2]);
+					PromocionAxB promocion = new PromocionAxB(tipo, atraccion1, atraccion2, atraccion3);
+					listaPromociones.add(promocion);
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		archivo.close();
+		return listaPromociones;
+	}
 }

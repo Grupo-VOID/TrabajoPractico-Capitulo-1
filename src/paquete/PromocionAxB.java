@@ -6,10 +6,16 @@ public class PromocionAxB extends Promocion {
 	private Atraccion atraccionUno;
 	private Atraccion atraccionDos;
 
-	public PromocionAxB(Atraccion atraccion1, Atraccion atraccion2, Atraccion atraccionGratis) {
+	public PromocionAxB(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, Atraccion atraccionGratis) {
+		super(tematica);
 		this.atraccionUno = atraccion1;
 		this.atraccionDos = atraccion2;
 		this.atraccionGratis = atraccionGratis;
+	}
+
+	@Override
+	public String toString() {
+		return "AxB";
 	}
 
 	@Override

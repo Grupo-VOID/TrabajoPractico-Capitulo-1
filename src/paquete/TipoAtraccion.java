@@ -1,11 +1,9 @@
 package paquete;
 
 public enum TipoAtraccion {
-	
-	AVENTURA,
-	PAISAJE,
-	DEGUSTACIÓN;
-	
+
+	AVENTURA, PAISAJE, DEGUSTACIÓN;
+
 	@Override
 	public String toString() {
 		return this.name();

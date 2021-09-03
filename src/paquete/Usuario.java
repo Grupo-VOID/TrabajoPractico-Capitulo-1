@@ -21,7 +21,7 @@ public class Usuario {
 	public String getNombre() {
 		return NOMBRE;
 	}
-	
+
 	public String getTematica() {
 		return TEMATICA_FAVORITA.toString();
 	}
