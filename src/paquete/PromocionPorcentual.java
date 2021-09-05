@@ -2,7 +2,7 @@ package paquete;
 
 public class PromocionPorcentual extends Promocion {
 
-	private int porcentajeDescuento = 0;
+	private float porcentajeDescuento = 0;
 	private Atraccion atraccionUno, atraccionDos;
 
 	public PromocionPorcentual(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2,int porcentajeDescuento) {
@@ -20,7 +20,7 @@ public class PromocionPorcentual extends Promocion {
 	@Override
 	public int getCosto() {
 		int costoAtracciones = this.atraccionUno.getCosto() + this.atraccionDos.getCosto();
-		return (int)Math.round(costoAtracciones * (1 - (float)porcentajeDescuento/100));
+		return (int)Math.round(costoAtracciones * (1 - porcentajeDescuento/100));
 	}
 
 	@Override

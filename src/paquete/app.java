@@ -40,6 +40,12 @@ public class app {
 			System.out.println(parque.getPromociones().get(i).getTiempo());
 
 		}
+		
+		parque.cargarCatalogo();
+		
+		System.out.println(" ");
+		
+		parque.mostrarCatalogo();
 	}
 	// _____________________________________________________________________________________
 	// _____________________________________________________________________________________
