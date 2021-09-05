@@ -84,17 +84,3 @@ public static void main(String[] args) {
 //		
 //		parque.mostrarCatalogo();
 }
- 
-/**
- Crear scanner
- variable usuario
- getUsuario con entrada por consola
- ofrecer sugerencias
- aceptar sugerencia por consola
- */
-
-/*Sugerencia s1 = new Sugerencia(parque.getUsuarios().get(0));
-System.out.println(s1.getAtraccion());
-for (int i = 0; i < parque.generarCatalogo().size(); i++) {
-}*/
-	
