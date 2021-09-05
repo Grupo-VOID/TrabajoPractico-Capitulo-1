@@ -6,23 +6,43 @@ import java.util.LinkedList;
 
 public class ParqueAtracciones {
 
-	private LinkedList<Atraccion> atracciones;
+	private ArrayList<Adquirible> atracciones, promociones;
 	private LinkedList<Usuario> usuarios;
-	private ArrayList<Promocion> promociones;
-	private ArrayList<Adquirible> catalogo = new ArrayList<Adquirible>();
+	private ArrayList<Adquirible> catalogo;
 
 	public ParqueAtracciones() {
+	}
+	
+	public void agregarAtracciones(ArrayList<Adquirible> atracciones) {
+		Collections.sort (atracciones, new AdquiribleComparator());
+		this.atracciones = atracciones;
+	}
+
+	public void agregarPromociones(ArrayList<Adquirible> promociones) {
+		Collections.sort (promociones, new AdquiribleComparator());
+		this.promociones = promociones;
+		
+	}
+	
+	public void agregarUsuarios(LinkedList<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+	
+	public void cargarCatalogo () {
+		catalogo = new ArrayList<Adquirible>();
+		this.catalogo.addAll(this.promociones);
+		this.catalogo.addAll(this.atracciones);
 	}
 	
 	public LinkedList<Usuario> getUsuarios(){
 		return this.usuarios;
 	}
 	
-	public LinkedList<Atraccion> getAtracciones(){
+	public ArrayList<Adquirible> getAtracciones(){
 		return this.atracciones;
 	}
 	
-	public ArrayList<Promocion> getPromociones(){
+	public ArrayList<Adquirible> getPromociones(){
 		return this.promociones;
 	}
 	
@@ -30,28 +50,9 @@ public class ParqueAtracciones {
 		return catalogo;
 	}
 
-	public void agregarAtracciones(LinkedList<Atraccion> atracciones) {
-		Collections.sort (atracciones, new AdquiribleComparator());
-		this.atracciones = atracciones;
-	}
-
-	public void agregarUsuarios(LinkedList<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
-
-	public void agregarPromociones(ArrayList<Promocion> promociones) {
-		Collections.sort (promociones, new AdquiribleComparator());
-		this.promociones = promociones;
-		
-	}
 	
-	public void cargarCatalogo () {
-		this.catalogo.addAll(this.promociones);
-		this.catalogo.addAll(this.atracciones);
-	}
-
-	public Atraccion obtenerAtraccionPorNombre(String nombre) {
-		for (Atraccion atraccion : atracciones) {
+	public Adquirible obtenerAtraccionPorNombre(String nombre) {
+		for (Adquirible atraccion : atracciones) {
 			if (atraccion.toString().equals(nombre)) {
 				return atraccion;
 			}

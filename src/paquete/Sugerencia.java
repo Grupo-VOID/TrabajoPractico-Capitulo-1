@@ -5,10 +5,15 @@ import java.util.Comparator;
 public class Sugerencia implements Comparator<Adquirible> {
 	private TipoAtraccion atraccionFavorita;
 
-	public Sugerencia(TipoAtraccion atraccionFavorita) {
-		this.atraccionFavorita = atraccionFavorita;
+	public Sugerencia(Usuario usuarioRef) {
+		atraccionFavorita = usuarioRef.getTematica();
 
 	}
+	
+	public TipoAtraccion getAtraccion() {
+		return atraccionFavorita;
+	}
+	
 
 	public int compare(Adquirible adquirible1, Adquirible adquirible2) {
 		if (adquirible1.getTematica() == atraccionFavorita && adquirible2.getTematica() != atraccionFavorita) {

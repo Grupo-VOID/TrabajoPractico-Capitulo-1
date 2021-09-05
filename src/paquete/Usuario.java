@@ -24,8 +24,8 @@ public class Usuario {
 		return NOMBRE;
 	}
 
-	public String getTematica() {
-		return TEMATICA_FAVORITA.toString();
+	public TipoAtraccion getTematica() {
+		return TEMATICA_FAVORITA;
 	}
 
 	public int getMonedasDisponibles() {

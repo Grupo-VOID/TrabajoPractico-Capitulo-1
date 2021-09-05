@@ -14,10 +14,10 @@ public class LectorArchivos {
 				String linea = archivo.nextLine();
 				String datosUsuario[] = linea.split(",");
 				String nombre = datosUsuario[0];
-				TipoAtraccion tipo = TipoAtraccion.valueOf(datosUsuario[1].toUpperCase());
+				TipoAtraccion tematica = TipoAtraccion.valueOf(datosUsuario[1].toUpperCase());
 				int monedas = Integer.parseInt(datosUsuario[2]);
 				double tiempo = Double.parseDouble(datosUsuario[3]);
-				Usuario usuario = new Usuario(nombre, tipo, monedas, tiempo);
+				Usuario usuario = new Usuario(nombre, tematica, monedas, tiempo);
 				listaUsuarios.add(usuario);
 			}
 		} catch (IOException e) {
@@ -27,8 +27,8 @@ public class LectorArchivos {
 		return listaUsuarios;
 	}
 
-	public static LinkedList<Atraccion> GenerarAtracciones() {
-		LinkedList<Atraccion> listaAtracciones = new LinkedList<Atraccion>();
+	public static ArrayList<Adquirible> GenerarAtracciones() {
+		ArrayList<Adquirible> listaAtracciones = new ArrayList<Adquirible>();
 		Scanner archivo = null;
 		try {
 			archivo = new Scanner(new File("entrada/atracciones.txt"));
@@ -39,8 +39,8 @@ public class LectorArchivos {
 				int costo = Integer.parseInt(datosAtracciones[1]);
 				double tiempo = Double.parseDouble(datosAtracciones[2]);
 				int cupo = Integer.parseInt(datosAtracciones[3]);
-				TipoAtraccion tipo = TipoAtraccion.valueOf(datosAtracciones[4].toUpperCase());
-				Atraccion atraccion = new Atraccion(nombre, tipo, costo, tiempo, cupo);
+				TipoAtraccion tematica = TipoAtraccion.valueOf(datosAtracciones[4].toUpperCase());
+				Atraccion atraccion = new Atraccion(nombre, tematica, costo, tiempo, cupo);
 				listaAtracciones.add(atraccion);
 			}
 		} catch (IOException e) {
@@ -50,8 +50,8 @@ public class LectorArchivos {
 		return listaAtracciones;
 	}
 
-	public static ArrayList<Promocion> GenerarPromociones(ParqueAtracciones parque) {
-		ArrayList<Promocion> listaPromociones = new ArrayList<Promocion>();
+	public static ArrayList<Adquirible> GenerarPromociones(ParqueAtracciones parque) {
+		ArrayList<Adquirible> listaPromociones = new ArrayList<Adquirible>();
 		Scanner archivo = null;
 		try {
 			archivo = new Scanner(new File("entrada/promociones.txt"));
@@ -59,22 +59,26 @@ public class LectorArchivos {
 				String linea = archivo.nextLine();
 				String datosPromociones[] = linea.split(",");
 				TipoPromocion tipoPromo = TipoPromocion.valueOf(datosPromociones[0].toUpperCase());
-				TipoAtraccion tipo = TipoAtraccion.valueOf(datosPromociones[1].toUpperCase());
-				Atraccion atraccion1 = parque.obtenerAtraccionPorNombre(datosPromociones[3]);
-				Atraccion atraccion2 = parque.obtenerAtraccionPorNombre(datosPromociones[4]);
+				TipoAtraccion tematica = TipoAtraccion.valueOf(datosPromociones[1].toUpperCase());
+				Atraccion atraccion1 = (Atraccion) parque.obtenerAtraccionPorNombre(datosPromociones[3]);
+				Atraccion atraccion2 = (Atraccion) parque.obtenerAtraccionPorNombre(datosPromociones[4]);
+				
+				// Si es Promoción Absoluta
 				if (tipoPromo == TipoPromocion.ABSOLUTA) {
 					int datoRelativo = Integer.parseInt(datosPromociones[2]);
-					PromocionAbsoluta promocion = new PromocionAbsoluta(tipo, atraccion1, atraccion2, datoRelativo);
+					PromocionAbsoluta promocion = new PromocionAbsoluta(tematica, atraccion1, atraccion2, datoRelativo);
 					listaPromociones.add(promocion);
 				}
+				// Si es Promoción Porcentual
 				if (tipoPromo == TipoPromocion.PORCENTUAL) {
 					int datoRelativo = Integer.parseInt(datosPromociones[2]);
-					PromocionPorcentual promocion = new PromocionPorcentual(tipo, atraccion1, atraccion2, datoRelativo);
+					PromocionPorcentual promocion = new PromocionPorcentual(tematica, atraccion1, atraccion2, datoRelativo);
 					listaPromociones.add(promocion);
 				}
+				// Si es Promoción AxB
 				if (tipoPromo == TipoPromocion.AXB) {
-					Atraccion atraccion3 = parque.obtenerAtraccionPorNombre(datosPromociones[2]);
-					PromocionAxB promocion = new PromocionAxB(tipo, atraccion1, atraccion2, atraccion3);
+					Atraccion atraccion3 = (Atraccion) parque.obtenerAtraccionPorNombre(datosPromociones[2]);
+					PromocionAxB promocion = new PromocionAxB(tematica, atraccion1, atraccion2, atraccion3);
 					listaPromociones.add(promocion);
 				}
 			}
