@@ -27,8 +27,8 @@ public class LectorArchivos {
 		return listaUsuarios;
 	}
 
-	public static ArrayList<Adquirible> GenerarAtracciones() {
-		ArrayList<Adquirible> listaAtracciones = new ArrayList<Adquirible>();
+	public static LinkedList<Adquirible> GenerarAtracciones() {
+		LinkedList<Adquirible> listaAtracciones = new LinkedList<Adquirible>();
 		Scanner archivo = null;
 		try {
 			archivo = new Scanner(new File("entrada/atracciones.txt"));
@@ -50,8 +50,8 @@ public class LectorArchivos {
 		return listaAtracciones;
 	}
 
-	public static ArrayList<Adquirible> GenerarPromociones(ParqueAtracciones parque) {
-		ArrayList<Adquirible> listaPromociones = new ArrayList<Adquirible>();
+	public static LinkedList<Adquirible> GenerarPromociones(ParqueAtracciones parque) {
+		LinkedList<Adquirible> listaPromociones = new LinkedList<Adquirible>();
 		Scanner archivo = null;
 		try {
 			archivo = new Scanner(new File("entrada/promociones.txt"));
@@ -60,22 +60,19 @@ public class LectorArchivos {
 				String datosPromociones[] = linea.split(",");
 				TipoPromocion tipoPromo = TipoPromocion.valueOf(datosPromociones[0].toUpperCase());
 				TipoAtraccion tematica = TipoAtraccion.valueOf(datosPromociones[1].toUpperCase());
+				// El método obtenerAtraccPorNombre no se podrá colocar acá?
 				Atraccion atraccion1 = (Atraccion) parque.obtenerAtraccionPorNombre(datosPromociones[3]);
 				Atraccion atraccion2 = (Atraccion) parque.obtenerAtraccionPorNombre(datosPromociones[4]);
-				
-				// Si es Promoción Absoluta
 				if (tipoPromo == TipoPromocion.ABSOLUTA) {
 					int datoRelativo = Integer.parseInt(datosPromociones[2]);
 					PromocionAbsoluta promocion = new PromocionAbsoluta(tematica, atraccion1, atraccion2, datoRelativo);
 					listaPromociones.add(promocion);
 				}
-				// Si es Promoción Porcentual
 				if (tipoPromo == TipoPromocion.PORCENTUAL) {
 					int datoRelativo = Integer.parseInt(datosPromociones[2]);
 					PromocionPorcentual promocion = new PromocionPorcentual(tematica, atraccion1, atraccion2, datoRelativo);
 					listaPromociones.add(promocion);
 				}
-				// Si es Promoción AxB
 				if (tipoPromo == TipoPromocion.AXB) {
 					Atraccion atraccion3 = (Atraccion) parque.obtenerAtraccionPorNombre(datosPromociones[2]);
 					PromocionAxB promocion = new PromocionAxB(tematica, atraccion1, atraccion2, atraccion3);
