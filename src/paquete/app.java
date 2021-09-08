@@ -3,51 +3,40 @@ package paquete;
 import java.util.Collections;
 import java.util.Scanner;
 
-
 public class app {
 
-public static void main(String[] args) {
+	public static void main(String[] args) {
 
-	ParqueAtracciones parque = new ParqueAtracciones();
-	parque.agregarUsuarios(LectorArchivos.GenerarUsuarios());
-	parque.agregarAtracciones(LectorArchivos.GenerarAtracciones());
-	parque.agregarPromociones(LectorArchivos.GenerarPromociones(parque));
-	parque.cargarCatalogo();
-	
-	System.out.println("::Bienvenido al Parque VOID\n"
-			+ "::Para obtener sugerencias seleccionar un usario:");
-	
-	for (int i = 0; i < parque.getUsuarios().size(); i++) {
-		System.out.print(i + ". " + parque.getUsuarios().get(i).getNombre() + "\n");
-	}
-	
-	// Scanner que recibe imput del usuario
-	Scanner sc = new Scanner(System.in);
-    int idUsuario = Integer.valueOf(sc.nextLine());
-	
-	if (idUsuario < parque.getUsuarios().size()) {
-		Usuario usuarioTemp = parque.getUsuarios().get(idUsuario);
-		System.out.println("Sugerencias para: " + usuarioTemp.getNombre() + "\n");
-		
-		// muestra el catalogo ordenado originalmente
-		System.out.println("Catalogo original:\n");
-		parque.mostrarCatalogo();
+		ParqueAtracciones parque = new ParqueAtracciones();
+		parque.agregarUsuarios(LectorArchivos.GenerarUsuarios());
+		parque.agregarAtracciones(LectorArchivos.GenerarAtracciones());
+		parque.agregarPromociones(LectorArchivos.GenerarPromociones(parque));
+		parque.cargarCatalogo();
 
-		/*
-		 * Acá se debería llamar a la sugerencia según
-		 * el usuarioTemp que se le pase, para que 
-		 * ordene/filtre el array "catalogo"
-		 * */
-		
-		Collections.sort(parque.getCatalogo(), new Sugerencia(usuarioTemp));
-		
-		System.out.println("\n" + "Ordenado:\n" + parque.getCatalogo());
-		
-	} else {
-		System.out.println("Seleccionar una opción válida.");
+		// Desde acá podríamos hacer una clase Menu
+		int idUsuario;
+		do {
+			System.out.println("::Bienvenido al Parque VOID\n" 
+					+ "::Para obtener sugerencias seleccionar un usario:");
+			parque.mostrarUsuarios();
+
+			// Scanner que recibe input del usuario
+			Scanner sc = new Scanner(System.in);
+			idUsuario = Integer.valueOf(sc.nextLine());
+
+			if (idUsuario < parque.getUsuarios().size()) {
+				Usuario usuarioTemp = parque.getUsuarios().get(idUsuario);
+				System.out.println("Sugerencias para: " + usuarioTemp.getNombre() 
+						+ "\nTematica favorita: " + usuarioTemp.getTematica() + "\n");
+
+				Collections.sort(parque.getCatalogo(), new Sugerencia(usuarioTemp));
+				parque.mostrarCatalogo();
+				System.out.println();
+			} else {
+				System.out.println("Seleccionar una opción válida.");
+			}
+		} while (idUsuario != parque.getUsuarios().size());
 	}
-	
-}
 // ______________________________________________________________________________________
 //	 ESTE BLOQUE SE BORRA, ES SOLO PARA QUE PUEDAN VER Q FUNCIONA Y CREA LAS
 //	 ATRACCIONES,
