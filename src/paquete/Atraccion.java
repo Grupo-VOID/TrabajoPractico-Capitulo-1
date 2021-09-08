@@ -29,11 +29,6 @@ public class Atraccion implements Adquirible {
 		return TEMATICA;
 	}
 
-	@Override
-	public String toString() {
-		return NOMBRE;
-	}
-
 	public int getCupoActual() {
 		return lugaresOcupados;
 	}
@@ -58,5 +53,15 @@ public class Atraccion implements Adquirible {
 	public boolean esPromocion() {
 		return false;
 	}
-
+	
+	public String getNombre() {
+		return NOMBRE;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("Atracción: " + this.NOMBRE
+				+ "\n Costo Total= $" + this.getCosto()
+				+ "\n Duracion Total= " + this.getTiempo());
+	}
 }

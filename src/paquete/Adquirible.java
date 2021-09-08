@@ -13,4 +13,6 @@ public interface Adquirible {
 	public void comprar();
 	
 	public boolean esPromocion();
+
+	public String getNombre();
 }
