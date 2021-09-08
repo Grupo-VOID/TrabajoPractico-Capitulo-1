@@ -13,8 +13,7 @@ public class PromocionAbsoluta extends Promocion {
 		this.descuento = descuento;
 	}
 
-	@Override
-	public String toString() {
+	public String getNombre() {
 		return "Absoluta";
 	}
 
@@ -42,13 +41,13 @@ public class PromocionAbsoluta extends Promocion {
 	}
 
 	@Override
-	public String ofrecerPromocion() {
-		String promocion;
-		promocion = "Si compra la atraccion: " + this.atraccionUno + " y la atraccion: " + this.atraccionDos
-				+ " obtiene un descuento de $" + this.descuento + ". Costo Total=" + this.getCosto()
-				+ ". Duracion Total=" + this.getTiempo();
-
-		return promocion;
+	public String toString() {
+		return ("Si compra la atraccion: " + this.atraccionUno.getNombre()
+				+ " y la atraccion: " + this.atraccionDos.getNombre()
+				+ ", obtiene un descuento de " + this.descuento
+				+ ".\n Costo Total= " + this.getCosto()
+				+ ".\n Duracion Total= " + this.getTiempo());
 	}
+
 
 }

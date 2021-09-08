@@ -11,9 +11,6 @@ public abstract class Promocion implements Adquirible {
 		this.TEMATICA = tematica;
 	}
 
-	public abstract String ofrecerPromocion();
-	// aca no se si esta bien que sea String
-
 	public int getCosto() {
 		return this.costoTotal;
 	}
