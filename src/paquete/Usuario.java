@@ -16,7 +16,7 @@ public class Usuario {
 		this.MONEDAS_INICIALES = monedas;
 		this.monedasDisponibles = monedas;
 		this.TIEMPO_INICIAL = tiempo;
-		this.tiempoDisponible = tiempo;
+		this.tiempoDisponible = TIEMPO_INICIAL;
 		this.itinerarioUsuario = new Itinerario();
 	}
 
