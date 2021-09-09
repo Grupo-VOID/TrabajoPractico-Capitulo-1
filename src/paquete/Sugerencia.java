@@ -8,11 +8,11 @@ public class Sugerencia implements Comparator<Adquirible> {
 	public Sugerencia(Usuario usuarioRef) {
 		atraccionFavorita = usuarioRef.getTematica();
 	}
-	
+
 	public TipoAtraccion getAtraccion() {
 		return atraccionFavorita;
 	}
-	
+
 	public int compare(Adquirible adquirible1, Adquirible adquirible2) {
 		if (adquirible1.getTematica() == atraccionFavorita && adquirible2.getTematica() != atraccionFavorita) {
 			return -1;
@@ -28,26 +28,32 @@ public class Sugerencia implements Comparator<Adquirible> {
 			return 1;
 		return (int) (adquirible1.getTiempo() - adquirible2.getTiempo());
 	}
-	
-	public static boolean validarSugerencia (Usuario persona, Adquirible sugerencia) {
-		if(sugerencia.esPromocion()) {
-			Atraccion [] lista = sugerencia.atraccionesIncluidas();
-			for (Atraccion i : lista) {
-				if(Sugerencia.validarSugerencia(persona, i) == false)
-					return false;
-			}
-			return true;
-		}
-		else {
-			if(sugerencia.estaDisponible()) {
-				if(persona.getMonedasDisponibles() >= sugerencia.getCosto() && persona.getTiempoDisponible() >= sugerencia.getTiempo())
-					if(persona.getListaAtracciones().isEmpty())
-						return true;
-					else
-						if(!persona.getListaAtracciones().contains(sugerencia))
+
+	public static boolean validarSugerencia(Usuario persona, Adquirible sugerencia) {
+		if (validarTiempoCoste(persona, sugerencia)) {
+			if (sugerencia.esPromocion()) {
+				Atraccion[] lista = sugerencia.atraccionesIncluidas();
+				for (Atraccion i : lista) {
+					if (Sugerencia.validarSugerencia(persona, i) == false)
+						return false;
+				}
+				return true;
+			} else {
+				if (sugerencia.estaDisponible()) {
+					if (validarTiempoCoste(persona, sugerencia))
+						if (persona.getListaAtracciones().isEmpty())
 							return true;
+						else if (!persona.getListaAtracciones().contains(sugerencia))
+							return true;
+				}
+				return false;
 			}
-			return false;
 		}
+		return false;
+	}
+
+	public static boolean validarTiempoCoste(Usuario persona, Adquirible sugerencia) {
+		return (persona.getMonedasDisponibles() >= sugerencia.getCosto()
+				&& persona.getTiempoDisponible() >= sugerencia.getTiempo());
 	}
 }
