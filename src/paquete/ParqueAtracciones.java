@@ -103,6 +103,7 @@ public class ParqueAtracciones {
 						op = "N";
 						break;
 					case "N":
+						op = "N";
 						break;
 					default:
 						System.out.println("Introdujo una letra incorrecta");
