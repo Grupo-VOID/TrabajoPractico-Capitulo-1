@@ -49,5 +49,14 @@ public class PromocionAbsoluta extends Promocion {
 				+ ".\n Duracion Total= " + this.getTiempo());
 	}
 
-
+	@Override
+	public boolean estaDisponible() {
+		return (this.atraccionUno.estaDisponible() && this.atraccionDos.estaDisponible());
+	}
+	
+	@Override
+	public Atraccion[] atraccionesIncluidas() {
+		Atraccion[] atracciones = {this.atraccionUno, this.atraccionDos};
+		return atracciones;
+	}
 }

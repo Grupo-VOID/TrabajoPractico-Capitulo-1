@@ -32,10 +32,10 @@ public class AtraccionesTest {
 		for (int i = 0; i < 19; i++) {
 			barco.comprar();
 		}
-		assertTrue(barco.hayLugar());
+		assertTrue(barco.estaDisponible());
 
 		barco.comprar();
-		assertFalse(barco.hayLugar());
+		assertFalse(barco.estaDisponible());
 	}
 	
 	@Test

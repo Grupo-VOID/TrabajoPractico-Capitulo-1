@@ -15,4 +15,8 @@ public interface Adquirible {
 	public boolean esPromocion();
 
 	public String getNombre();
+	
+	public boolean estaDisponible();
+	
+	public abstract Atraccion [] atraccionesIncluidas();
 }

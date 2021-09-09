@@ -48,5 +48,15 @@ public class PromocionPorcentual extends Promocion {
 		// usuario1.comprar(); no se bien como va el argumento pero debería disminuir su
 		// costo con el costoTotal y su tiempo con tiempoTotal de esta promocion.
 	}
+	
+	@Override
+	public boolean estaDisponible() {
+		return (this.atraccionUno.estaDisponible() && this.atraccionDos.estaDisponible());
+	}
 
+	@Override
+	public Atraccion[] atraccionesIncluidas() {
+		Atraccion[] atracciones = {this.atraccionUno, this.atraccionDos};
+		return atracciones;
+	}
 }

@@ -1,6 +1,7 @@
 package paquete;
 
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class ParqueAtracciones {
 
@@ -75,9 +76,43 @@ public class ParqueAtracciones {
 		}
 	}
 	
+	
 	public void mostrarUsuarios() {
 		for (int i = 0; i < this.usuarios.size(); i++) {
-			System.out.print(i + ". " + this.usuarios.get(i).getNombre() + "\n");
+			System.out.print(i+1 + ". " + this.usuarios.get(i).getNombre() + "\n");
 		}
+		System.out.println(this.usuarios.size()+1 +". Finalizar programa");
+	}
+	
+	public void mostrarSugerencia(Usuario persona) {
+		System.out.println("Sugerencias para: " + persona.getNombre() 
+		+ "\nTematica favorita: " + persona.getTematica() + "\n");
+		for (Adquirible lista : this.getCatalogo()) {
+			if(Sugerencia.validarSugerencia(persona, lista)) {
+				String op;
+				Scanner sc = new Scanner(System.in);
+				System.out.println(lista);
+				do {
+					System.out.println("Desea comprar la sugerencia? S/N");
+					op = sc.nextLine().toUpperCase();
+					
+					switch (op) {
+					case "S": 
+						System.out.println(op);
+						persona.aceptarSugerencia(lista);
+						op = "N";
+						break;
+					case "N":
+						break;
+					default:
+						System.out.println("Introdujo una letra incorrecta");
+						break;
+					}
+				}while (op != "N");
+			}
+		}
+		System.out.println("\nCompra finalizada\nEl itinerario del usuario "
+				+ persona.getNombre() + " es: ");
+		persona.itinerarioUsuario.mostrarItinerario();
 	}
 }

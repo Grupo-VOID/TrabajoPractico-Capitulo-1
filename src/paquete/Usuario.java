@@ -1,5 +1,7 @@
 package paquete;
 
+import java.util.ArrayList;
+
 public class Usuario {
 
 	private final String NOMBRE;
@@ -9,6 +11,7 @@ public class Usuario {
 	private final double TIEMPO_INICIAL;
 	private double tiempoDisponible;
 	public Itinerario itinerarioUsuario;
+	private ArrayList<Atraccion> listaAtracciones = new ArrayList<Atraccion>();
 
 	public Usuario(String nombre, TipoAtraccion tematica, int monedas, double tiempo) {
 		this.NOMBRE = nombre;
@@ -36,11 +39,10 @@ public class Usuario {
 		return tiempoDisponible;
 	}
 
-	// ---------------------------------------------------------------------------------------
-	// estos dos metodos son para calcular el tiempo utilizado y las monedas
-	// gastadas,
-	// para generar el itinerario final del usuario
-
+	public ArrayList<Atraccion> getListaAtracciones() {
+		return listaAtracciones;
+	}
+	
 	public int monedasUtilizadas() {
 		return this.MONEDAS_INICIALES - this.monedasDisponibles;
 	}
@@ -50,7 +52,11 @@ public class Usuario {
 	public void aceptarSugerencia(Adquirible sugerencia) {
 		this.monedasDisponibles -= sugerencia.getCosto();
 		this.tiempoDisponible -= sugerencia.getTiempo();
+		this.itinerarioUsuario.agregarAdquirible(sugerencia);
+		Atraccion [] lista = sugerencia.atraccionesIncluidas();
+		for(Atraccion i : lista) {
+			listaAtracciones.add(i);
+		}
 		sugerencia.comprar();
 	}
-
 }

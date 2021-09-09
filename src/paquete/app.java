@@ -15,28 +15,73 @@ public class app {
 
 		// Desde acá podríamos hacer una clase Menu
 		int idUsuario;
-		do {
-			System.out.println("::Bienvenido al Parque VOID\n" 
-					+ "::Para obtener sugerencias seleccionar un usario:");
-			parque.mostrarUsuarios();
+		try {
+			do {
+				System.out.println("::Bienvenido al Parque VOID\n" 
+						+ "::Para obtener sugerencias seleccionar un usario:");
+				parque.mostrarUsuarios();
 
-			// Scanner que recibe input del usuario
-			Scanner sc = new Scanner(System.in);
-			idUsuario = Integer.valueOf(sc.nextLine());
+				// Scanner que recibe input del usuario
+				Scanner sc = new Scanner(System.in);
+				idUsuario = Integer.valueOf(sc.nextLine());
+				idUsuario --;
+				if (idUsuario < parque.getUsuarios().size()) {
+					Usuario usuarioTemp = parque.getUsuarios().get(idUsuario);
+					System.out.println("Sugerencias para: " + usuarioTemp.getNombre() 
+							+ "\nTematica favorita: " + usuarioTemp.getTematica() + "\n");
 
-			if (idUsuario < parque.getUsuarios().size()) {
-				Usuario usuarioTemp = parque.getUsuarios().get(idUsuario);
-				System.out.println("Sugerencias para: " + usuarioTemp.getNombre() 
-						+ "\nTematica favorita: " + usuarioTemp.getTematica() + "\n");
-
-				Collections.sort(parque.getCatalogo(), new Sugerencia(usuarioTemp));
-				parque.mostrarCatalogo();
-				System.out.println();
-			} else {
-				System.out.println("Seleccionar una opción válida.");
-			}
-		} while (idUsuario != parque.getUsuarios().size());
+					Collections.sort(parque.getCatalogo(), new Sugerencia(usuarioTemp));
+					parque.mostrarSugerencia(usuarioTemp);
+					System.out.println();
+				} else {
+					if(idUsuario == parque.getUsuarios().size()) {
+						System.out.println("Hasta luego");
+						System.exit(idUsuario);
+					}
+					System.out.println("Seleccionar una opción válida.");
+					
+				}
+			} while (idUsuario != parque.getUsuarios().size());
+		}
+		catch (NumberFormatException e) {
+			System.out.println("Debe ingresar un numero");
+		}
 	}
+	
+	/*
+	 * try {
+			do {
+				System.out.println("::Bienvenido al Parque VOID\n" 
+						+ "::Para obtener sugerencias seleccionar un usario:");
+				parque.mostrarUsuarios();
+
+				// Scanner que recibe input del usuario
+				Scanner sc = new Scanner(System.in);
+				idUsuario = Integer.valueOf(sc.nextLine());
+				idUsuario --;
+				if (idUsuario < parque.getUsuarios().size()) {
+					Usuario usuarioTemp = parque.getUsuarios().get(idUsuario);
+					System.out.println("Sugerencias para: " + usuarioTemp.getNombre() 
+							+ "\nTematica favorita: " + usuarioTemp.getTematica() + "\n");
+
+					Collections.sort(parque.getCatalogo(), new Sugerencia(usuarioTemp));
+					parque.mostrarCatalogo();
+					System.out.println();
+				} else {
+					if(idUsuario == parque.getUsuarios().size()) {
+						System.out.println("Hasta luego");
+						System.exit(idUsuario);
+					}
+					System.out.println("Seleccionar una opción válida.");
+					
+				}
+			} while (idUsuario != parque.getUsuarios().size());
+		}
+		catch (NumberFormatException e) {
+			System.out.println("Debe ingresar un numero");
+		}
+	 * 
+	 */
 // ______________________________________________________________________________________
 //	 ESTE BLOQUE SE BORRA, ES SOLO PARA QUE PUEDAN VER Q FUNCIONA Y CREA LAS
 //	 ATRACCIONES,

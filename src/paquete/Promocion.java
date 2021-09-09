@@ -2,10 +2,11 @@ package paquete;
 
 public abstract class Promocion implements Adquirible {
 
-	protected Atraccion atraccionOfrecida;
+	//protected Atraccion atraccionOfrecida;
 	protected final TipoAtraccion TEMATICA;
 	protected int costoTotal = 0;
 	protected double duracionTotal = 0;
+	
 
 	public Promocion(TipoAtraccion tematica) {
 		this.TEMATICA = tematica;
@@ -27,4 +28,10 @@ public abstract class Promocion implements Adquirible {
 	public boolean esPromocion() {
 		return true;
 	}
+	
+	public boolean estaDisponible() {
+		return false;
+	}
+	
+	public abstract Atraccion [] atraccionesIncluidas();
 }

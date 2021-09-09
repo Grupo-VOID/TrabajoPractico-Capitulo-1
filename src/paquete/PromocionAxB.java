@@ -51,6 +51,15 @@ public class PromocionAxB extends Promocion {
 				+ ".\n Duracion Total =" + this.getTiempo());
 	}
 
+	@Override
+	public boolean estaDisponible() {
+		return (this.atraccionUno.estaDisponible() && this.atraccionDos.estaDisponible()
+				&& this.atraccionGratis.estaDisponible());
+	}
 	
-	
+	@Override
+	public Atraccion[] atraccionesIncluidas() {
+		Atraccion[] atracciones = {this.atraccionUno, this.atraccionDos, this.atraccionGratis};
+		return atracciones;
+	}
 }

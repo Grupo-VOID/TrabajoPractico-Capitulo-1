@@ -28,5 +28,26 @@ public class Sugerencia implements Comparator<Adquirible> {
 			return 1;
 		return (int) (adquirible1.getTiempo() - adquirible2.getTiempo());
 	}
-// Faltaria la validacion si el usuario tiene tiempo, dinero,, si ya se oferto y el cupo 
+	
+	public static boolean validarSugerencia (Usuario persona, Adquirible sugerencia) {
+		if(sugerencia.esPromocion()) {
+			Atraccion [] lista = sugerencia.atraccionesIncluidas();
+			for (Atraccion i : lista) {
+				if(Sugerencia.validarSugerencia(persona, i) == false)
+					return false;
+			}
+			return true;
+		}
+		else {
+			if(sugerencia.estaDisponible()) {
+				if(persona.getMonedasDisponibles() >= sugerencia.getCosto() && persona.getTiempoDisponible() >= sugerencia.getTiempo())
+					if(persona.getListaAtracciones().isEmpty())
+						return true;
+					else
+						if(!persona.getListaAtracciones().contains(sugerencia))
+							return true;
+			}
+			return false;
+		}
+	}
 }
