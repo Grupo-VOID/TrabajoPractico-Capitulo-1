@@ -23,7 +23,7 @@ public class Itinerario {
 		else {
 			System.out.println("Las compras realizadas son:");
 			for (Adquirible lista : listaAtracciones) {
-				lista.getNombre();
+				System.out.println(lista.getNombre());
 			}
 			System.out.println("El tiempo total es: " + this.tiempoTotal);
 			System.out.println("El costo total es: " + this.costoMonedas);
