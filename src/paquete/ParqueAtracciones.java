@@ -84,8 +84,6 @@ public class ParqueAtracciones {
 	}
 	
 	public void mostrarSugerencia(Usuario persona) {
-		System.out.println("Sugerencias para: " + persona.getNombre() 
-		+ "\nTematica favorita: " + persona.getTematica() + "\n");
 		for (Adquirible lista : this.getCatalogo()) {
 			if(Sugerencia.validarSugerencia(persona, lista)) {
 				String op;
@@ -111,8 +109,8 @@ public class ParqueAtracciones {
 				}while (op != "N");
 			}
 		}
-		System.out.println("\nCompra finalizada\nEl itinerario del usuario "
-				+ persona.getNombre() + " es: ");
+		System.out.println("\nCompra finalizada\n**Itinerario del usuario "
+				+ persona.getNombre() + "**");
 		persona.itinerarioUsuario.mostrarItinerario();
 	}
 	

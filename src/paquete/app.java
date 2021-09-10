@@ -67,11 +67,12 @@ public class app {
 							+ "\nTematica favorita: " + usuarioTemp.getTematica() + "\n");
 
 					Collections.sort(parque.getCatalogo(), new Sugerencia(usuarioTemp));
+					//parque.mostrarCatalogo();
 					parque.mostrarSugerencia(usuarioTemp);
 					System.out.println();
 				} else {
 					if(idUsuario == parque.getUsuarios().size()) {
-						System.out.println("Hasta luego");
+						System.out.println("Muchas gracias por utilizar nuestro programa.");
 						System.exit(idUsuario);
 					}
 					System.out.println("Seleccionar una opción válida.");
