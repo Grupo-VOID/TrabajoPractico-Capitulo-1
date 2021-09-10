@@ -76,7 +76,6 @@ public class ParqueAtracciones {
 		}
 	}
 	
-	
 	public void mostrarUsuarios() {
 		for (int i = 0; i < this.usuarios.size(); i++) {
 			System.out.print(i+1 + ". " + this.usuarios.get(i).getNombre() + "\n");

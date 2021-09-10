@@ -7,13 +7,15 @@ public class app {
 	
 
 	public static void main(String[] args) {
-		int idUsuario=0;
 		Scanner sc = new Scanner(System.in);
 		ParqueAtracciones parque = new ParqueAtracciones();
 		parque.agregarUsuarios(LectorArchivos.GenerarUsuarios());
 		parque.agregarAtracciones(LectorArchivos.GenerarAtracciones());
 		parque.agregarPromociones(LectorArchivos.GenerarPromociones(parque));
 		parque.cargarCatalogo();
+
+		// Desde acá podríamos hacer una clase Menu
+		int idUsuario=0;
 		
 		do {	//Menu principal
 			try {
@@ -92,7 +94,7 @@ public class app {
 		for (int i=0; i<7; i++) {
 			System.out.println("");
 		}
-	}
+	} 
 // ______________________________________________________________________________________
 //	 ESTE BLOQUE SE BORRA, ES SOLO PARA QUE PUEDAN VER Q FUNCIONA Y CREA LAS
 //	 ATRACCIONES,
