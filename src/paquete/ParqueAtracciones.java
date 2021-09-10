@@ -116,4 +116,11 @@ public class ParqueAtracciones {
 				+ persona.getNombre() + " es: ");
 		persona.itinerarioUsuario.mostrarItinerario();
 	}
+	
+	public void menuPrincipal () {
+		System.out.println("::Bienvenido al Parque VOID\n");
+		System.out.println("1. Mostrar Usuarios\n2. Mostrar Atracciones\n"
+				+ "3. Mostrar Promociones\n4. Comprar atracciones\n5. "
+				+ "Finalizar\n\n::Elija una opcion:");
+	}
 }
