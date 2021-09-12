@@ -2,7 +2,7 @@ package paquete;
 
 public class PromocionPorcentual extends Promocion {
 
-	private float porcentajeDescuento = 0;
+	private double porcentajeDescuento = 0;
 	private Atraccion atraccionUno, atraccionDos;
 
 	public PromocionPorcentual(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, int porcentajeDescuento) {
@@ -12,14 +12,11 @@ public class PromocionPorcentual extends Promocion {
 		this.porcentajeDescuento = porcentajeDescuento;
 	}
 
-	public String getNombre() {
-		return "Porcentual";
-	}
-
 	@Override
-	public int getCosto() {
-		int costoAtracciones = this.atraccionUno.getCosto() + this.atraccionDos.getCosto();
-		return (int)Math.round(costoAtracciones * (1 - porcentajeDescuento/100));
+	public double getCosto() {
+		double costoAtracciones = this.atraccionUno.getCosto() + this.atraccionDos.getCosto();
+		this.costoTotal = costoAtracciones * (1 - porcentajeDescuento/100);
+		return this.costoTotal;
 	}
 
 	@Override
@@ -42,11 +39,6 @@ public class PromocionPorcentual extends Promocion {
 	public void comprar() {
 		this.atraccionUno.comprar();
 		this.atraccionDos.comprar();
-
-		// el método debería ser quizas: public void comprar(Usuario usuario1)
-		// Entonces agregar:
-		// usuario1.comprar(); no se bien como va el argumento pero debería disminuir su
-		// costo con el costoTotal y su tiempo con tiempoTotal de esta promocion.
 	}
 	
 	@Override

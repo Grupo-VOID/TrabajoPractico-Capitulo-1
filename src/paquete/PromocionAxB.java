@@ -13,12 +13,8 @@ public class PromocionAxB extends Promocion {
 		this.atraccionGratis = atraccionGratis;
 	}
 
-	public String getNombre() {
-		return "AxB";
-	}
-
 	@Override
-	public int getCosto() {
+	public double getCosto() {
 		this.costoTotal = this.atraccionUno.getCosto() + this.atraccionDos.getCosto();
 		return this.costoTotal;
 	}
@@ -34,12 +30,6 @@ public class PromocionAxB extends Promocion {
 		this.atraccionUno.comprar();
 		this.atraccionDos.comprar();
 		this.atraccionGratis.comprar();
-
-		// el método debería ser quizas: public void comprar(Usuario usuario1)
-		// Entonces agregar:
-		// usuario1.comprar(); no se bien como va el argumento pero debería disminuir su
-		// costo con el costoTotal y su tiempo con tiempoTotal de esta promocion.
-
 	}
 
 	@Override
