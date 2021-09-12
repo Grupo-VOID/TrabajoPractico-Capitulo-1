@@ -10,7 +10,7 @@ public class Usuario {
 	private int monedasDisponibles;
 	private final double TIEMPO_INICIAL;
 	private double tiempoDisponible;
-	public Itinerario itinerarioUsuario;
+	protected Itinerario itinerarioUsuario;
 	private ArrayList<Atraccion> listaAtracciones = new ArrayList<Atraccion>();
 
 	public Usuario(String nombre, TipoAtraccion tematica, int monedas, double tiempo) {
@@ -53,8 +53,7 @@ public class Usuario {
 		this.monedasDisponibles -= sugerencia.getCosto();
 		this.tiempoDisponible -= sugerencia.getTiempo();
 		this.itinerarioUsuario.agregarAdquirible(sugerencia);
-		Atraccion [] lista = sugerencia.atraccionesIncluidas();
-		for(Atraccion i : lista) {
+		for(Atraccion i : sugerencia.atraccionesIncluidas()) {
 			listaAtracciones.add(i);
 		}
 		sugerencia.comprar();

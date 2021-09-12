@@ -1,33 +1,27 @@
 package paquete;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class ParqueAtracciones {
 
-	private LinkedList<Adquirible> atracciones, promociones, catalogo;
+	private LinkedList<Adquirible> atracciones, promociones, catalogo = new LinkedList<Adquirible>();
 	private LinkedList<Usuario> usuarios;
-	
-	public ParqueAtracciones() {
-	}
-	
+
 	public void agregarAtracciones(LinkedList<Adquirible> atracciones) {
-		//Collections.sort (atracciones, new AdquiribleComparator());
 		this.atracciones = atracciones;
 	}
 
 	public void agregarPromociones(LinkedList<Adquirible> promociones) {
-		//Collections.sort (promociones, new AdquiribleComparator());
 		this.promociones = promociones;
-		
 	}
 	
 	public void agregarUsuarios(LinkedList<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
-	
+
 	public void cargarCatalogo () {
-		catalogo = new LinkedList<Adquirible>();
 		this.catalogo.addAll(this.promociones);
 		this.catalogo.addAll(this.atracciones);
 	}
@@ -44,7 +38,6 @@ public class ParqueAtracciones {
 		return this.promociones;
 	}
 	
-	// Esta lista debería ofrecerse a los usuarios para que acepten atracciones
 	public LinkedList<Adquirible> getCatalogo() {
 		return catalogo;
 	}
@@ -71,7 +64,7 @@ public class ParqueAtracciones {
 				System.out.print(i.getTematica() + " ");
 				System.out.print(i.getCosto() + " ");
 				System.out.println(i.getTiempo());
-				//System.out.print(((Atraccion) i).getCUPO_MAXIMO() + " ");
+				System.out.print(((Atraccion) i).getCupoMaximo() + " ");
 			}
 		}
 	}
@@ -84,18 +77,18 @@ public class ParqueAtracciones {
 	}
 	
 	public void mostrarSugerencia(Usuario persona) {
+		Scanner sc = new Scanner(System.in);
 		for (Adquirible lista : this.getCatalogo()) {
 			if(Sugerencia.validarSugerencia(persona, lista)) {
 				String op;
-				Scanner sc = new Scanner(System.in);
 				System.out.println(lista);
 				do {
-					System.out.println("Desea comprar la sugerencia? S/N");
+					System.out.println("Desea comprar la sugerencia? Presione S para"
+							+ " Si o N para No");
 					op = sc.nextLine().toUpperCase();
 					
 					switch (op) {
 					case "S": 
-						System.out.println(op);
 						persona.aceptarSugerencia(lista);
 						op = "N";
 						break;
@@ -110,8 +103,11 @@ public class ParqueAtracciones {
 			}
 		}
 		System.out.println("\nCompra finalizada\n**Itinerario del usuario "
-				+ persona.getNombre() + "**");
+				+ persona.getNombre() + "**\n\n");
 		persona.itinerarioUsuario.mostrarItinerario();
+		System.out.println("Presione una tecla para continuar...");
+		sc.nextLine();
+		
 	}
 	
 	public void menuPrincipal () {
@@ -120,4 +116,16 @@ public class ParqueAtracciones {
 				+ "3. Mostrar Promociones\n4. Comprar atracciones\n5. "
 				+ "Finalizar\n\n::Elija una opcion:");
 	}
+	
+	public void sistemaCompras() {
+		System.out.println("::Sistema de compra\n");
+		for (Usuario i : this.usuarios) {
+			System.out.println(":Sugerencias para el usuario " + i.getNombre());
+			Collections.sort(this.getCatalogo(), new Sugerencia(i));
+			this.mostrarSugerencia(i);
+			System.out.println("\n\n\n");
+		}
+		System.out.println("Todos los usuarios realizaron sus compras");
+	}
+	
 }

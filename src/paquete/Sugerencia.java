@@ -30,17 +30,16 @@ public class Sugerencia implements Comparator<Adquirible> {
 	}
 
 	public static boolean validarSugerencia(Usuario persona, Adquirible sugerencia) {
-		if (validarTiempoCoste(persona, sugerencia)) {
+		if (validarTiempoCosto(persona, sugerencia)) {
 			if (sugerencia.esPromocion()) {
-				Atraccion[] lista = sugerencia.atraccionesIncluidas();
-				for (Atraccion i : lista) {
+				for (Atraccion i : sugerencia.atraccionesIncluidas()) {
 					if (Sugerencia.validarSugerencia(persona, i) == false)
 						return false;
 				}
 				return true;
 			} else {
 				if (sugerencia.estaDisponible()) {
-					if (validarTiempoCoste(persona, sugerencia))
+					if (validarTiempoCosto(persona, sugerencia))
 						if (persona.getListaAtracciones().isEmpty())
 							return true;
 						else if (!persona.getListaAtracciones().contains(sugerencia))
@@ -52,7 +51,7 @@ public class Sugerencia implements Comparator<Adquirible> {
 		return false;
 	}
 
-	public static boolean validarTiempoCoste(Usuario persona, Adquirible sugerencia) {
+	public static boolean validarTiempoCosto(Usuario persona, Adquirible sugerencia) {
 		return (persona.getMonedasDisponibles() >= sugerencia.getCosto()
 				&& persona.getTiempoDisponible() >= sugerencia.getTiempo());
 	}

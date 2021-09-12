@@ -17,7 +17,7 @@ public class Atraccion implements Adquirible {
 		this.CUPO_MAXIMO = cupoMaximo;
 	}
 
-	public int getCosto() {
+	public double getCosto() {
 		return COSTO;
 	}
 
@@ -33,8 +33,12 @@ public class Atraccion implements Adquirible {
 		return lugaresOcupados;
 	}
 
-	public int getCUPO_MAXIMO() {
+	public int getCupoMaximo() {
 		return CUPO_MAXIMO;
+	}
+	
+	public String getNombre() {
+		return NOMBRE;
 	}
 
 	public boolean estaDisponible() {
@@ -54,10 +58,6 @@ public class Atraccion implements Adquirible {
 		return false;
 	}
 	
-	public String getNombre() {
-		return NOMBRE;
-	}
-	
 	@Override
 	public String toString() {
 		return String.format("Atracción: " + this.NOMBRE
@@ -65,7 +65,6 @@ public class Atraccion implements Adquirible {
 				+ "\n Duracion Total= " + this.getTiempo());
 	}
 	
-	@Override
 	public Atraccion[] atraccionesIncluidas() {
 		Atraccion [] nombre = {this};
 		return nombre;
