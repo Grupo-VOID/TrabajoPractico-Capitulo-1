@@ -1,0 +1,7 @@
+Las atracciones compradas por el usuario Bonilla Iván son:
+	Bosque Negro
+	Mordor
+	Moria
+	Lothlórien
+El tiempo total es: 10.0
+El costo total es: 67.0

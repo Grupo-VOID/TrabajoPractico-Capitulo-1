@@ -1,0 +1,5 @@
+Las atracciones compradas por el usuario Bustos Mauro son:
+	Erebor
+	Minas Tirith
+El tiempo total es: 5.5
+El costo total es: 17.0

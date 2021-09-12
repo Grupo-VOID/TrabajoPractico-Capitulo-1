@@ -1,0 +1,5 @@
+Las atracciones compradas por el usuario Quiriconi Estéfano son:
+	Lothlórien
+	La Comarca
+El tiempo total es: 7.5
+El costo total es: 2.0
