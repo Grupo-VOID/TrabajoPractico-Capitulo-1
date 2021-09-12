@@ -1,67 +1,38 @@
 package paquete;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class app {
+public class App {
 	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
+		Impresora imp = new Impresora();
 		ParqueAtracciones parque = new ParqueAtracciones();
 		parque.agregarUsuarios(LectorArchivos.GenerarUsuarios());
 		parque.agregarAtracciones(LectorArchivos.GenerarAtracciones());
 		parque.agregarPromociones(LectorArchivos.GenerarPromociones(parque));
 		parque.cargarCatalogo();
 
-		// Desde acá podríamos hacer una clase Menu
-		int idUsuario=0;
+		parque.sistemaCompras(); //Metodo para que cada usuario compre en orden
 		
-		do {	//Menu principal
-			try {
-				parque.menuPrincipal();
-				idUsuario = Integer.valueOf(sc.nextLine());
-			}catch (NumberFormatException e) {
-				System.out.println("Opcion incorrecta. Debe ingresar un numero\n"
-						+ "Presione una tecla para continuar...");
-				sc.nextLine();
-			}
-			switch (idUsuario) {
-			case 1: {
-				espaciar();
-				break;
-			}
-			case 2: {
-				espaciar();
-				break;
-			}
-			case 3: {
-				espaciar();
-				break;
-			}
-			case 4: {
-				espaciar();
-				break;
-			}
-			case 5: {
-				System.out.println("Hasta luego");
-				break;
-}
-			default:
-				System.out.println(" La opcion ingresada es incorrecta");
-			}
-		}while (idUsuario!=5);
-		/*try {
+		for (Usuario i : parque.getUsuarios()) {
+			imp.imprimir(i);
+		}
+		
+		/*int idUsuario=0; //Metodo para elegir que usuario compra
+					
+		try {
 			do {
-				System.out.println("::Bienvenido al Parque VOID\n" 
-						+ "::Para obtener sugerencias seleccionar un usario:");
+				System.out.println("::Sistema de compra\n" 
+						+ "::Para obtener sugerencias seleccionar un usuario:");
 				parque.mostrarUsuarios();
-
-				// Scanner que recibe input del usuario
-				Scanner sc = new Scanner(System.in);
 				idUsuario = Integer.valueOf(sc.nextLine());
 				idUsuario --;
 				if (idUsuario < parque.getUsuarios().size()) {
+					espaciar();
 					Usuario usuarioTemp = parque.getUsuarios().get(idUsuario);
 					System.out.println("Sugerencias para: " + usuarioTemp.getNombre() 
 							+ "\nTematica favorita: " + usuarioTemp.getTematica() + "\n");
@@ -71,28 +42,21 @@ public class app {
 					parque.mostrarSugerencia(usuarioTemp);
 					System.out.println();
 				} else {
-					if(idUsuario == parque.getUsuarios().size()) {
+					if(idUsuario != parque.getUsuarios().size()) 
+						System.out.println("Seleccionar una opción válida.");
+					else
 						System.out.println("Muchas gracias por utilizar nuestro programa.");
-						System.exit(idUsuario);
-					}
-					System.out.println("Seleccionar una opción válida.");
-					
 				}
 			} while (idUsuario != parque.getUsuarios().size());
 		}
 		catch (NumberFormatException e) {
 			System.out.println("Debe ingresar un numero");
 		}*/
-	}
-	
-	public static void clearScreen() {  
-	    System.out.print("\033[H\033[2J");  
-	    System.out.flush();  
-	}  //Este metodo borra la consola supuestamente pero solo con la de windows parece
-	//No me funciono en eclipse
+}
+		
 	
 	public static void espaciar() {
-		for (int i=0; i<7; i++) {
+		for (int i=0; i<3; i++) {
 			System.out.println("");
 		}
 	} 
