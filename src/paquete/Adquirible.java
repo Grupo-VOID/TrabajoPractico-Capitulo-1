@@ -1,10 +1,8 @@
 package paquete;
 
-//Esta interface la deberian implementar las clases atracciones y promociones.
-
 public interface Adquirible {
 
-	public int getCosto();
+	public double getCosto();
 
 	public double getTiempo();
 	
@@ -18,5 +16,5 @@ public interface Adquirible {
 	
 	public boolean estaDisponible();
 	
-	public abstract Atraccion [] atraccionesIncluidas();
+	public Atraccion [] atraccionesIncluidas();
 }
