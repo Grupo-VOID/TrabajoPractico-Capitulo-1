@@ -2,7 +2,7 @@ package paquete;
 
 public enum TipoAtraccion {
 
-	AVENTURA, PAISAJE, DEGUSTACIÓN;
+	DRAMA, COMEDIA, MUSICAL, POLICIAL, ARGENTINA;
 
 	@Override
 	public String toString() {

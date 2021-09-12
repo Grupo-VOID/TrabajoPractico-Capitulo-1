@@ -1,3 +1,4 @@
-Porcentual,Aventura,20,Bosque Negro,Mordor
-Absoluta,Degustación,36,Lothlórien,La Comarca
-AxB,Paisaje,Minas Tirith,Abismo de Helm,Erebor
+Porcentual,Policial,20,Black List,Lupin
+Absoluta,Argentina,36,El Reino,Marginal
+AxB,Drama,Breaking Bad,Better Call Saul,Peaky Blinders
+Porcentual,Comedia,35,The Office,Modern Family
