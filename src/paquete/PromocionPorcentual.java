@@ -16,7 +16,9 @@ public class PromocionPorcentual extends Promocion {
 	public double getCosto() {
 		double costoAtracciones = this.atraccionUno.getCosto() + this.atraccionDos.getCosto();
 		this.costoTotal = costoAtracciones * (1 - porcentajeDescuento/100);
-		return this.costoTotal;
+		//Con lo de abajo se trunca en sólo dos decimales
+		this.costoTotal = this.costoTotal * 100;
+		return (Math.floor(this.costoTotal))/100;
 	}
 
 	@Override
