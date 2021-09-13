@@ -26,7 +26,7 @@ public class Sugerencia implements Comparator<Adquirible> {
 			return -1;
 		else if (adquirible1.getCosto() < adquirible2.getCosto())
 			return 1;
-		return (int) (adquirible1.getTiempo() - adquirible2.getTiempo());
+		return (int) (adquirible2.getTiempo() - adquirible1.getTiempo());
 	}
 
 	public static boolean validarSugerencia(Usuario persona, Adquirible sugerencia) {
