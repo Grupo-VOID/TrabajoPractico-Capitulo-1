@@ -2,7 +2,7 @@ The Office,10,2,6,Comedia
 Glee,5,2.5,25,Musical
 Breaking Bad,3,6.5,150,Drama
 Better Call Saul,25,3,4,Drama
-Marginal,15,2,15,Argentina
+El Marginal,15,2,15,Argentina
 Ocupas,35,1,30,Argentina
 El Reino,20,3,32,Argentina
 Modern Family,3,4,12,Comedia
