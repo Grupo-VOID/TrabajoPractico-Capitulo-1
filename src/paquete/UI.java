@@ -34,7 +34,7 @@ public abstract class UI {
 			sistemaDeCompra(parque, sc);
 		} catch (NumberFormatException e) {
 			System.out.println("Debe ingresar un numero");
-			sistemaDeCompra(parque, sc);
+			compraPorUsuario(parque);
 		}
 	}
 
