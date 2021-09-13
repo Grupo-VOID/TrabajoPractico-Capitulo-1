@@ -4,9 +4,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Impresora {
+public abstract class Impresora {
 
-	public void imprimir(Usuario persona) throws IOException {
+	public static void imprimir(Usuario persona) throws IOException {
 		FileWriter archivo = new FileWriter("salida/salida"+persona.getNombre()+".txt");
 		PrintWriter salida = new PrintWriter(archivo);
 		
