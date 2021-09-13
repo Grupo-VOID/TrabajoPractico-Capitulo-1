@@ -33,8 +33,8 @@ public class Itinerario {
 			for (Adquirible lista : listaAtracciones) {
 				System.out.println("  " + lista.getNombre());
 			}
-			System.out.println("El tiempo total es: " + this.tiempoTotal);
 			System.out.println("El costo total es: " + this.costoMonedas);
+			System.out.println("El tiempo total es: " + this.tiempoTotal);
 		}
 	}
 }
