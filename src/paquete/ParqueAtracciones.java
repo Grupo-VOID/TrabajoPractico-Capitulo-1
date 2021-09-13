@@ -1,8 +1,6 @@
 package paquete;
 
-import java.util.Collections;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 public class ParqueAtracciones {
 
@@ -73,59 +71,6 @@ public class ParqueAtracciones {
 		for (int i = 0; i < this.usuarios.size(); i++) {
 			System.out.print(i+1 + ". " + this.usuarios.get(i).getNombre() + "\n");
 		}
-		System.out.println(this.usuarios.size()+1 +". Finalizar programa");
-	}
-	
-	public void mostrarSugerencia(Usuario persona) {
-		Scanner sc = new Scanner(System.in);
-		for (Adquirible lista : this.getCatalogo()) {
-			if(Sugerencia.validarSugerencia(persona, lista)) {
-				String op;
-				System.out.println(lista);
-				do {
-					System.out.println("Desea comprar la sugerencia? Presione S para"
-							+ " Si o N para No");
-					op = sc.nextLine().toUpperCase();
-					
-					switch (op) {
-					case "S": 
-						persona.aceptarSugerencia(lista);
-						op = "N";
-						break;
-					case "N":
-						op = "N";
-						break;
-					default:
-						System.out.println("Introdujo una letra incorrecta");
-						break;
-					}
-				}while (op != "N");
-			}
-		}
-		System.out.println("\nCompra finalizada\n**Itinerario del usuario "
-				+ persona.getNombre() + "**\n\n");
-		persona.itinerarioUsuario.mostrarItinerario();
-		System.out.println("Presione una tecla para continuar...");
-		sc.nextLine();
-		
-	}
-	
-	public void menuPrincipal () {
-		System.out.println("::Bienvenido al Parque VOID\n");
-		System.out.println("1. Mostrar Usuarios\n2. Mostrar Atracciones\n"
-				+ "3. Mostrar Promociones\n4. Comprar atracciones\n5. "
-				+ "Finalizar\n\n::Elija una opcion:");
-	}
-	
-	public void sistemaCompras() {
-		System.out.println("::Sistema de compra\n");
-		for (Usuario i : this.usuarios) {
-			System.out.println(":Sugerencias para el usuario " + i.getNombre());
-			Collections.sort(this.getCatalogo(), new Sugerencia(i));
-			this.mostrarSugerencia(i);
-			System.out.println("\n\n\n");
-		}
-		System.out.println("Todos los usuarios realizaron sus compras");
 	}
 	
 }
