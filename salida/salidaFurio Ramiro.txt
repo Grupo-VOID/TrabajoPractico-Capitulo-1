@@ -1,5 +1,0 @@
-Las atracciones compradas por el usuario Furio Ramiro son:
-	Lothlórien
-	Mordor
-El tiempo total es: 4.0
-El costo total es: 60.0

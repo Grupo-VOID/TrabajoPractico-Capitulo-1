@@ -1,4 +1,0 @@
-Las atracciones compradas por el usuario Ojeda Juan son:
-	Moria
-El tiempo total es: 2.0
-El costo total es: 10.0

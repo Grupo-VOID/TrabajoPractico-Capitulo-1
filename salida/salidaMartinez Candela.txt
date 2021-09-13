@@ -1,5 +1,0 @@
-Las atracciones compradas por el usuario Martinez Candela son:
-	Erebor
-	Abismo de Helm
-El tiempo total es: 5.0
-El costo total es: 17.0

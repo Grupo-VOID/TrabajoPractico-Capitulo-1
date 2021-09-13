@@ -11,7 +11,7 @@ public class AtraccionesTest {
 
 	@Before
 	public void setup() {
-		barco = new Atraccion("Barco Pirata", TipoAtraccion.AVENTURA , 20, 3.5, 20);
+		barco = new Atraccion("Barco Pirata", TipoAtraccion.COMEDIA , 20, 3.5, 20);
 	}
 
 	@Test
