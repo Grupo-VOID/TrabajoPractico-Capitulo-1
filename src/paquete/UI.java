@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public abstract class UI {
 
-	public static void compraSucesiva(ParqueAtracciones parque) {
+	public static void compraSucesiva(ParqueAtracciones parque) throws IOException {
 		System.out.println("::Bienvenido al Parque VOID::\n");
 		System.out.println("::Sistema de compras::\n");
 		for (Usuario i : parque.getUsuarios()) {
@@ -17,6 +17,9 @@ public abstract class UI {
 			Collections.sort(parque.getCatalogo(), new Sugerencia(i));
 			mostrarSugerencia(parque, i);
 			System.out.println("\n\n\n");
+		}
+		for (Usuario i : parque.getUsuarios()) {
+			Impresora.imprimir(i);
 		}
 		System.out.println("Todos los usuarios realizaron sus compras");
 		System.out.println("Muchas gracias por utilizar nuestro programa.");
