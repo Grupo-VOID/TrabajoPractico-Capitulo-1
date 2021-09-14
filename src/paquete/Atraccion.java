@@ -4,12 +4,12 @@ public class Atraccion implements Adquirible {
 
 	private final String NOMBRE;
 	private final TipoAtraccion TEMATICA;
-	private final int COSTO;
+	private final double COSTO;
 	private final double DURACION;
 	private final int CUPO_MAXIMO;
 	private int lugaresOcupados = 0;
 
-	public Atraccion(String nombre, TipoAtraccion tematica, int costo, double duracion, int cupoMaximo) {
+	public Atraccion(String nombre, TipoAtraccion tematica, double costo, double duracion, int cupoMaximo) {
 		this.NOMBRE = nombre;
 		this.TEMATICA = tematica;
 		this.COSTO = costo;
