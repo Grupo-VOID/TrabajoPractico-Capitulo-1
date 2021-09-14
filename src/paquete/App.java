@@ -12,12 +12,8 @@ public class App {
 		parque.agregarPromociones(LectorArchivos.GenerarPromociones(parque));
 		parque.cargarCatalogo();
 
-		/* UI.compraSucesiva(parque); //Método para que cada usuario compre en orden */
-		UI.compraPorUsuario(parque); // Método para elegir qué usuario compra*/
+		UI.compraSucesiva(parque); //Método para que cada usuario compre en orden */
+		/*UI.compraPorUsuario(parque); // Método para elegir qué usuario compra*/
 
-		// Este for imprimir sólo se usa con el UI.compraSucesiva
-		for (Usuario i : parque.getUsuarios()) {
-			Impresora.imprimir(i);
-		}
 	}
 }
