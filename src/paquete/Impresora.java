@@ -14,7 +14,7 @@ public abstract class Impresora {
 			salida.println("El usuario "+persona.getNombre()+" no ha realizado compras.");
 		else {
 			salida.println("Las atracciones compradas por el usuario "+ persona.getNombre() + " son:");
-			for (Adquirible lista : persona.getListaAtracciones()) {
+			for (Adquirible lista : persona.itinerarioUsuario.getListaAtracciones()) {
 				salida.println("\t" + lista.getNombre());
 			}
 			salida.println("El tiempo total es: "+persona.itinerarioUsuario.getTiempoTotal());
@@ -23,5 +23,3 @@ public abstract class Impresora {
 		salida.close();
 	}
 }
-
-//persona.itinerarioUsuario.getListaAtracciones()

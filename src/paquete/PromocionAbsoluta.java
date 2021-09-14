@@ -24,6 +24,17 @@ public class PromocionAbsoluta extends Promocion {
 		this.duracionTotal = atraccionUno.getTiempo() + atraccionDos.getTiempo();
 		return duracionTotal;
 	}
+	
+	@Override
+	public boolean estaDisponible() {
+		return (this.atraccionUno.estaDisponible() && this.atraccionDos.estaDisponible());
+	}
+	
+	@Override
+	public Atraccion[] atraccionesIncluidas() {
+		Atraccion[] atracciones = {this.atraccionUno, this.atraccionDos};
+		return atracciones;
+	}
 
 	@Override
 	public void comprar() {
@@ -38,16 +49,5 @@ public class PromocionAbsoluta extends Promocion {
 				+ ", obtiene un descuento de " + this.descuento + " sobre el costo total."
 				+ "\n Costo Total= " + this.getCosto()
 				+ "\n Duracion Total= " + this.getTiempo());
-	}
-
-	@Override
-	public boolean estaDisponible() {
-		return (this.atraccionUno.estaDisponible() && this.atraccionDos.estaDisponible());
-	}
-	
-	@Override
-	public Atraccion[] atraccionesIncluidas() {
-		Atraccion[] atracciones = {this.atraccionUno, this.atraccionDos};
-		return atracciones;
 	}
 }

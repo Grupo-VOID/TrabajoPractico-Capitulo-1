@@ -24,6 +24,18 @@ public class PromocionAxB extends Promocion {
 		this.duracionTotal = atraccionUno.getTiempo() + atraccionDos.getTiempo() + atraccionGratis.getTiempo();
 		return duracionTotal;
 	}
+	
+	@Override
+	public boolean estaDisponible() {
+		return (this.atraccionUno.estaDisponible() && this.atraccionDos.estaDisponible()
+				&& this.atraccionGratis.estaDisponible());
+	}
+	
+	@Override
+	public Atraccion[] atraccionesIncluidas() {
+		Atraccion[] atracciones = {this.atraccionUno, this.atraccionDos, this.atraccionGratis};
+		return atracciones;
+	}
 
 	@Override
 	public void comprar() {
@@ -39,17 +51,5 @@ public class PromocionAxB extends Promocion {
 				+ ", se lleva la atraccion " + this.atraccionGratis.getNombre() + " gratis." 
 				+"\n Costo Total= " + this.getCosto()
 				+"\n Duracion Total= " + this.getTiempo());
-	}
-
-	@Override
-	public boolean estaDisponible() {
-		return (this.atraccionUno.estaDisponible() && this.atraccionDos.estaDisponible()
-				&& this.atraccionGratis.estaDisponible());
-	}
-	
-	@Override
-	public Atraccion[] atraccionesIncluidas() {
-		Atraccion[] atracciones = {this.atraccionUno, this.atraccionDos, this.atraccionGratis};
-		return atracciones;
 	}
 }

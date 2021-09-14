@@ -45,14 +45,15 @@ public class Atraccion implements Adquirible {
 		return lugaresOcupados < CUPO_MAXIMO;
 	}
 
-	// comprar no valida si hay lugar antes, ya q se deberia validar antes de
-	// ofrecer la compra,
-	// "no se puede ofrecer un producto ya adquirido, que este lleno y o no tenga el
-	// tiempo o dinero suficiente".
 	public void comprar() {
 		lugaresOcupados++;
 	}
 
+	public Atraccion[] atraccionesIncluidas() {
+		Atraccion [] nombre = {this};
+		return nombre;
+	}
+	
 	@Override
 	public boolean esPromocion() {
 		return false;
@@ -63,10 +64,5 @@ public class Atraccion implements Adquirible {
 		return String.format("Atracción: " + this.NOMBRE
 				+ "\n Costo Total= $" + this.getCosto()
 				+ "\n Duracion Total= " + this.getTiempo());
-	}
-	
-	public Atraccion[] atraccionesIncluidas() {
-		Atraccion [] nombre = {this};
-		return nombre;
 	}
 }

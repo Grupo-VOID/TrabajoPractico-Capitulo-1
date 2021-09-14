@@ -18,35 +18,16 @@ public class ParqueAtracciones {
 	public void agregarUsuarios(LinkedList<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
+	
+	public void mostrarUsuarios() {
+		for (int i = 0; i < this.usuarios.size(); i++) {
+			System.out.print(i+1 + ". " + this.usuarios.get(i).getNombre() + "\n");
+		}
+	}
 
 	public void cargarCatalogo () {
 		this.catalogo.addAll(this.promociones);
 		this.catalogo.addAll(this.atracciones);
-	}
-	
-	public LinkedList<Usuario> getUsuarios(){
-		return this.usuarios;
-	}
-	
-	public LinkedList<Adquirible> getAtracciones(){
-		return this.atracciones;
-	}
-	
-	public LinkedList<Adquirible> getPromociones(){
-		return this.promociones;
-	}
-	
-	public LinkedList<Adquirible> getCatalogo() {
-		return catalogo;
-	}
-
-	public Adquirible obtenerAtraccionPorNombre(String nombre) {
-		for (Adquirible atraccion : atracciones) {
-			if (atraccion.getNombre().equals(nombre)) {
-				return atraccion;
-			}
-		}
-		return null;
 	}
 	
 	public void mostrarCatalogo() {
@@ -67,10 +48,28 @@ public class ParqueAtracciones {
 		}
 	}
 	
-	public void mostrarUsuarios() {
-		for (int i = 0; i < this.usuarios.size(); i++) {
-			System.out.print(i+1 + ". " + this.usuarios.get(i).getNombre() + "\n");
+	public Adquirible obtenerAtraccionPorNombre(String nombre) {
+		for (Adquirible atraccion : atracciones) {
+			if (atraccion.getNombre().equals(nombre)) {
+				return atraccion;
+			}
 		}
+		return null;
 	}
 	
+	public LinkedList<Usuario> getUsuarios(){
+		return this.usuarios;
+	}
+	
+	public LinkedList<Adquirible> getAtracciones(){
+		return this.atracciones;
+	}
+	
+	public LinkedList<Adquirible> getPromociones(){
+		return this.promociones;
+	}
+	
+	public LinkedList<Adquirible> getCatalogo() {
+		return catalogo;
+	}
 }

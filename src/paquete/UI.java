@@ -6,15 +6,6 @@ import java.util.Scanner;
 
 public abstract class UI {
 
-	/*////////// ESTO NO SE USA
-	 * public static void menuPrincipal () {
-		System.out.println("::Bienvenido al Parque VOID\n");
-		System.out.println("1. Mostrar Usuarios\n2. Mostrar Atracciones\n"
-				+ "3. Mostrar Promociones\n4. Comprar atracciones\n5. "
-				+ "Finalizar\n\n::Elija una opcion:");
-	}*/
-	
-//// 
 	public static void compraSucesiva(ParqueAtracciones parque) {
 		System.out.println("::Bienvenido al Parque VOID::\n");
 		System.out.println("::Sistema de compras::\n");

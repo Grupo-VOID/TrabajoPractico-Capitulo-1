@@ -47,8 +47,6 @@ public class Usuario {
 		return this.MONEDAS_INICIALES - this.monedasDisponibles;
 	}
 
-	// ---------------------------------------------------------------------------------------
-
 	public void aceptarSugerencia(Adquirible sugerencia) {
 		this.monedasDisponibles -= sugerencia.getCosto();
 		this.tiempoDisponible -= sugerencia.getTiempo();
