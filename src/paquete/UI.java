@@ -12,6 +12,8 @@ public abstract class UI {
 		for (Usuario i : parque.getUsuarios()) {
 			System.out.println("Sugerencias para el usuario: " + i.getNombre());
 			System.out.println("Tematica preferida: " + i.getTematica() + "\n");
+			System.out.println("Dinero disponible: $" + i.getMonedasDisponibles() + "\n");
+			System.out.println("Tiempo disponible: " + i.getTiempoDisponible() + " horas\n");
 			Collections.sort(parque.getCatalogo(), new Sugerencia(i));
 			mostrarSugerencia(parque, i);
 			System.out.println("\n\n\n");
@@ -42,7 +44,9 @@ public abstract class UI {
 			if (idUsuario < parque.getUsuarios().size()) {
 				Usuario usuarioTemp = parque.getUsuarios().get(idUsuario);
 				System.out.println("Sugerencias para: " + usuarioTemp.getNombre() 
-						+ "\nTematica favorita: " + usuarioTemp.getTematica() + "\n");
+						+ "\n_Tematica favorita: " + usuarioTemp.getTematica() 
+						+ "\n_Dinero disponible: $" + usuarioTemp.getMonedasDisponibles()
+						+ "\n_Tiempo disponible: " + usuarioTemp.getTiempoDisponible() + " horas\n");
 				Collections.sort(parque.getCatalogo(), new Sugerencia(usuarioTemp));
 				//parque.mostrarCatalogo();
 				mostrarSugerencia(parque, usuarioTemp);
