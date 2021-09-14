@@ -32,6 +32,9 @@ public abstract class UI {
 		} catch (NumberFormatException e) {
 			System.out.println("Debe ingresar un numero");
 			compraPorUsuario(parque);
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("Seleccionar una opción válida.");
+			compraPorUsuario(parque);
 		}
 	}
 
