@@ -5,7 +5,7 @@ public class PromocionPorcentual extends Promocion {
 	private double porcentajeDescuento = 0;
 	private Atraccion atraccionUno, atraccionDos;
 
-	public PromocionPorcentual(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, int porcentajeDescuento) {
+	public PromocionPorcentual(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, double porcentajeDescuento) {
 		super(tematica);
 		this.atraccionUno = atraccion1;
 		this.atraccionDos = atraccion2;
