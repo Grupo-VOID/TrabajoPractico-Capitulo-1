@@ -61,8 +61,9 @@ public class Atraccion implements Adquirible {
 	
 	@Override
 	public String toString() {
-		return String.format("Atracción: " + this.NOMBRE
+		return String.format("Atracción: " + this.NOMBRE 
+				+ ". Temática: " + this.getTematica()
 				+ "\n Costo Total= $" + this.getCosto()
-				+ "\n Duracion Total= " + this.getTiempo());
+				+ "\n Duracion Total= " + this.getTiempo() + " horas");
 	}
 }
