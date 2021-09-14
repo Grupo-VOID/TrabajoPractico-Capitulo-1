@@ -2,11 +2,11 @@ package paquete;
 
 public class PromocionAbsoluta extends Promocion {
 
-	private int descuento = 0;
+	private double descuento = 0;
 	private Atraccion atraccionUno;
 	private Atraccion atraccionDos;
 
-	public PromocionAbsoluta(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, int descuento) {
+	public PromocionAbsoluta(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, double descuento) {
 		super(tematica);
 		this.atraccionUno = atraccion1;
 		this.atraccionDos = atraccion2;
