@@ -17,8 +17,8 @@ public abstract class Impresora {
 			for (Adquirible lista : persona.itinerarioUsuario.getListaAtracciones()) {
 				salida.println("\t" + lista.getNombre());
 			}
-			salida.println("El tiempo total es: "+persona.itinerarioUsuario.getTiempoTotal());
-			salida.println("El costo total es: "+persona.itinerarioUsuario.getCostoMonedas());
+			salida.println("El tiempo total es: "+persona.itinerarioUsuario.getTiempoTotal() + " horas");
+			salida.println("El costo total es: $"+persona.itinerarioUsuario.getCostoMonedas());
 		}
 		salida.close();
 	}
