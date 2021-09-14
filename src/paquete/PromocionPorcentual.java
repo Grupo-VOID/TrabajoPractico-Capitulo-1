@@ -29,12 +29,12 @@ public class PromocionPorcentual extends Promocion {
 
 	@Override
 	public String toString() {
-		return ("Si compra la atraccion " + this.atraccionUno.getNombre() 
+		return (this.getNombre()+": Si compra la atraccion " + this.atraccionUno.getNombre() 
 				+ " y la atraccion " + this.atraccionDos.getNombre()
 				+ ", se ofrece un descuento del " + this.porcentajeDescuento
 				+ "% sobre el costo total."
-				+ "\n Costo Total con descuento= " + this.getCosto()
-				+ "\n Duracion Total= " + this.getTiempo());
+				+ "\n Costo Total con descuento= $" + this.getCosto()
+				+ "\n Duracion Total= " + this.getTiempo() + " horas");
 	}
 
 	@Override

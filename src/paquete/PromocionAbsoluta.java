@@ -44,10 +44,10 @@ public class PromocionAbsoluta extends Promocion {
 
 	@Override
 	public String toString() {
-		return ("Si compra la atraccion " + this.atraccionUno.getNombre()
+		return (this.getNombre()+": Si compra la atraccion " + this.atraccionUno.getNombre()
 				+ " y la atraccion " + this.atraccionDos.getNombre()
 				+ ", obtiene un descuento de " + this.descuento + " sobre el costo total."
-				+ "\n Costo Total= " + this.getCosto()
-				+ "\n Duracion Total= " + this.getTiempo());
+				+ "\n Costo Total= $" + this.getCosto()
+				+ "\n Duracion Total= " + this.getTiempo() + " horas");
 	}
 }
