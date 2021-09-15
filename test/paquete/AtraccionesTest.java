@@ -7,39 +7,39 @@ import org.junit.Test;
 
 public class AtraccionesTest {
 
-	Atraccion barco;
+	Atraccion atraccion;
 
 	@Before
 	public void setup() {
-		barco = new Atraccion("Barco Pirata", TipoAtraccion.COMEDIA , 20, 3.5, 20);
+		atraccion = new Atraccion("Barco Pirata", TipoAtraccion.COMEDIA , 20, 3.5, 20);
 	}
 
 	@Test
 	public void sePuedeCrear() {
-		assertNotNull(barco);
+		assertNotNull(atraccion);
 	}
 
 	@Test
 	public void seAcumulanUsuariosEnCupo() {
 		for (int i = 0; i < 10; i++) {
-			barco.comprar();
+			atraccion.comprar();
 		}
-		assertEquals(10, barco.getCupoActual());
+		assertEquals(10, atraccion.getCupoActual());
 	}
 
 	@Test
 	public void hayLugarDisponible() {
 		for (int i = 0; i < 19; i++) {
-			barco.comprar();
+			atraccion.comprar();
 		}
-		assertTrue(barco.estaDisponible());
+		assertTrue(atraccion.estaDisponible());
 
-		barco.comprar();
-		assertFalse(barco.estaDisponible());
+		atraccion.comprar();
+		assertFalse(atraccion.estaDisponible());
 	}
 	
 	@Test
 	public void devuelveTipoAtraccion() {
-		assertEquals("AVENTURA", barco.getTematica());
+		assertEquals(TipoAtraccion.COMEDIA, atraccion.getTematica());
 	}
 }

@@ -75,7 +75,7 @@ public class LectorArchivos {
 				}
 				if (tipoPromo == TipoPromocion.AXB) {
 					Atraccion atraccion3 = (Atraccion) parque.obtenerAtraccionPorNombre(datosPromociones[2]);
-					PromocionAxB promocion = new PromocionAxB(tematica, atraccion1, atraccion2, atraccion3);
+					PromocionAxB promocion = new PromocionAxB(tematica, atraccion3, atraccion1, atraccion2);
 					listaPromociones.add(promocion);
 				}
 			}

@@ -1,0 +1,9 @@
+Ojeda Juan,Drama,10,8
+Martinez Candela,Policial,100,5
+Quiriconi Estéfano,Comedia,36,8
+Bustos Mauro,Drama,120,6
+Bonilla Iván,Argentina,200,10
+Furio Ramiro,Comedia,300,4
+Leonardo Blautzik,Argentina,500,65
+Lucas Videla,Drama,1,1
+Federico Gasior,Musical,100,6
