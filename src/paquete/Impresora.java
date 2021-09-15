@@ -10,14 +10,14 @@ public abstract class Impresora {
 		FileWriter archivo = new FileWriter("salida/salida" + persona.getNombre() + ".txt");
 		PrintWriter salida = new PrintWriter(archivo);
 
+		salida.println("Usuario: " + persona.getNombre() + "\nTemática Favorita: " + persona.getTematica()
+				+ "\nDinero inicial: $" + persona.getMonedasIniciales() + "\nTiempo inicial: "
+				+ persona.getTiempoDisponible() + " horas\n\n");
+
 		if (persona.itinerarioUsuario.getListaAtracciones().isEmpty())
 			salida.println("El usuario " + persona.getNombre() + " no ha realizado compras.");
 		else {
-			salida.println("Usuario: " + persona.getNombre() + "\nTemática Favorita: " + persona.getTematica()
-					+ "\nDinero inicial: $" + persona.getMonedasDisponibles()
-					+ persona.itinerarioUsuario.getCostoMonedas() + "\nTiempo inicial: "
-					+ persona.getTiempoDisponible() + persona.itinerarioUsuario.getTiempoTotal() + " horas\n\n"
-					+ "Las atracciones compradas por el usuario " + persona.getNombre() + " son:");
+			salida.println("Las atracciones compradas por el usuario " + persona.getNombre() + " son:");
 			for (Adquirible lista : persona.itinerarioUsuario.getListaAtracciones()) {
 				salida.println("\t" + lista.getNombre());
 			}
