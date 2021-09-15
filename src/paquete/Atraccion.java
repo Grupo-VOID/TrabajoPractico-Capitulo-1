@@ -64,6 +64,6 @@ public class Atraccion implements Adquirible {
 		return String.format("Atracción: " + this.NOMBRE 
 				+ ". Temática: " + this.getTematica()
 				+ "\n Costo Total= $" + this.getCosto()
-				+ "\n Duracion Total= " + this.getTiempo() + " horas");
+				+ "\n Duración Total= " + this.getTiempo() + " horas");
 	}
 }
