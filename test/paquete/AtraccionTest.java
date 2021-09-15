@@ -1,6 +1,9 @@
 package paquete;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,10 +16,16 @@ public class AtraccionTest {
 	public void setup() {
 		atraccion = new Atraccion("Barco Pirata", TipoAtraccion.COMEDIA, 20, 3.5, 20);
 	}
-
+	
 	@Test
-	public void sePuedeCrear() {
+	public void seCreaCorrectamente() {
 		assertNotNull(atraccion);
+		assertEquals("Barco Pirata", atraccion.getNombre());
+		assertEquals(TipoAtraccion.COMEDIA, atraccion.getTematica());
+		assertEquals(20, atraccion.getCosto(), 0);
+		assertEquals(3.5, atraccion.getTiempo(), 0.01);
+		assertEquals(20, atraccion.getCupoMaximo());
+		assertTrue(atraccion.estaDisponible());
 	}
 
 	@Test
@@ -29,56 +38,17 @@ public class AtraccionTest {
 	}
 
 	@Test
-	public void cupoMaximo() {
+	public void noEstaDisponibleCuandoLlenaSuCupo() {
 		assertEquals(20, atraccion.getCupoMaximo());
-	}
-
-	@Test
-	public void hayLugarDisponible() {
-		int lugaresDisponibles = atraccion.getCupoMaximo();
-		for (int i = 0; i < lugaresDisponibles - 1; i++) {
-			atraccion.comprar();
-		}
-		assertTrue(atraccion.estaDisponible());
-	}
-
-	@Test
-	public void noHayLugarDisponible() {
-		int lugaresDisponibles = atraccion.getCupoMaximo();
-		for (int i = 0; i < lugaresDisponibles; i++) {
+		assertEquals(0, atraccion.getCupoActual());
+		for (int i = 0; i < 20; i++) {
 			atraccion.comprar();
 		}
 		assertFalse(atraccion.estaDisponible());
 	}
 
 	@Test
-	public void devuelveTipoAtraccion() {
-		assertEquals(TipoAtraccion.COMEDIA, atraccion.getTematica());
-	}
-
-	@Test
 	public void noEsPromocion() {
 		assertFalse(atraccion.esPromocion());
-	}
-
-	@Test
-	public void devuelveCosto() {
-		assertEquals(20, atraccion.getCosto(), 0);
-	}
-
-	@Test
-	public void devuelveDuracion() {
-		assertEquals(3.5, atraccion.getTiempo(), 0);
-	}
-
-	@Test
-	public void devuelveNombre() {
-		assertEquals("Barco Pirata", atraccion.getNombre());
-	}
-
-	@Test
-	public void atraccionesIncluidasTest() {
-		Atraccion[] atraccionEsperada = { atraccion };
-		assertArrayEquals(atraccionEsperada, atraccion.atraccionesIncluidas());
 	}
 }
