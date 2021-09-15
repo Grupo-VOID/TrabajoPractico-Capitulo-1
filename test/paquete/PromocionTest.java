@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PromocionesTest {
+public class PromocionTest {
 
 	Atraccion atraccion1;
 	Atraccion atraccion2;
@@ -41,7 +41,7 @@ public class PromocionesTest {
 	public void crearPromocionAbsolutaTest() {
 		assertNotNull(promocionAbsoluta);
 	}
-	
+
 	@Test
 	public void costoPromocionAbsoluta() {
 		assertEquals(promocionAbsoluta.getCosto(), atraccion1.getCosto() + atraccion2.getCosto() - descuento, 0);
@@ -120,7 +120,7 @@ public class PromocionesTest {
 	public void crearPromocionPorcentualTest() {
 		assertNotNull(promocionPorcentual);
 	}
-	
+
 	@Test
 	public void costoPromocionPorcentual() {
 		double costoSinDescuento = atraccion1.getCosto() + atraccion2.getCosto();
@@ -202,7 +202,7 @@ public class PromocionesTest {
 	public void crearPromocionAxBTest() {
 		assertNotNull(promocionAxB);
 	}
-	
+
 	@Test
 	public void costoPromocionAxB() {
 		assertEquals(promocionAxB.getCosto(), atraccion1.getCosto() + atraccion2.getCosto(), 0);
