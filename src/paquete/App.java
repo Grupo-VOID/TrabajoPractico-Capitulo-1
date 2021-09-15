@@ -12,8 +12,9 @@ public class App {
 		parque.agregarPromociones(LectorArchivos.GenerarPromociones(parque,"entrada/promociones.txt"));
 		parque.cargarCatalogo();
 
-		UI.compraSucesiva(parque); //Método para que cada usuario compre en orden */
+		//UI.compraSucesiva(parque); //Método para que cada usuario compre en orden */
 		/*UI.compraPorUsuario(parque); // Método para elegir qué usuario compra*/
+		UI.eleccionDeMenu(parque); // Método para elegir modo de compra
 
 	}
 }
