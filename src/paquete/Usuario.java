@@ -42,7 +42,7 @@ public class Usuario {
 	public ArrayList<Atraccion> getListaAtracciones() {
 		return listaAtracciones;
 	}
-	
+
 	public double monedasUtilizadas() {
 		return this.MONEDAS_INICIALES - this.monedasDisponibles;
 	}
@@ -51,9 +51,17 @@ public class Usuario {
 		this.monedasDisponibles -= sugerencia.getCosto();
 		this.tiempoDisponible -= sugerencia.getTiempo();
 		this.itinerarioUsuario.agregarAdquirible(sugerencia);
-		for(Atraccion i : sugerencia.atraccionesIncluidas()) {
+		for (Atraccion i : sugerencia.atraccionesIncluidas()) {
 			listaAtracciones.add(i);
 		}
 		sugerencia.comprar();
+	}
+
+	public double getMonedasIniciales() {
+		return MONEDAS_INICIALES;
+	}
+
+	public double getTiempoInicial() {
+		return TIEMPO_INICIAL;
 	}
 }
