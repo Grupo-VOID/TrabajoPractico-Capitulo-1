@@ -38,6 +38,11 @@ public class PromocionesTest {
 //////////////// PROMOCION ABSOLUTA///////////////////////
 
 	@Test
+	public void crearPromocionAbsolutaTest() {
+		assertNotNull(promocionAbsoluta);
+	}
+	
+	@Test
 	public void costoPromocionAbsoluta() {
 		assertEquals(promocionAbsoluta.getCosto(), atraccion1.getCosto() + atraccion2.getCosto() - descuento, 0);
 	}
@@ -103,14 +108,19 @@ public class PromocionesTest {
 	public void esPromocionPromocionAbsoluta() {
 		assertTrue(promocionAbsoluta.esPromocion());
 	}
-	
+
 	@Test
 	public void nombrePromocionAbsolutaTest() {
-		assertEquals("Pack COMEDIA",promocionAbsoluta.getNombre());
+		assertEquals("Pack COMEDIA", promocionAbsoluta.getNombre());
 	}
 
 ////////////////PROMOCION PORCENTUAL///////////////////////
 
+	@Test
+	public void crearPromocionPorcentualTest() {
+		assertNotNull(promocionPorcentual);
+	}
+	
 	@Test
 	public void costoPromocionPorcentual() {
 		double costoSinDescuento = atraccion1.getCosto() + atraccion2.getCosto();
@@ -180,14 +190,19 @@ public class PromocionesTest {
 	public void esPromocionPromocionPorcentual() {
 		assertTrue(promocionPorcentual.esPromocion());
 	}
-	
+
 	@Test
 	public void nombrePromocionPorcentualTest() {
-		assertEquals("Pack COMEDIA",promocionPorcentual.getNombre());
+		assertEquals("Pack COMEDIA", promocionPorcentual.getNombre());
 	}
 
 ////////////////PROMOCION AXB ///////////////////////
 
+	@Test
+	public void crearPromocionAxBTest() {
+		assertNotNull(promocionAxB);
+	}
+	
 	@Test
 	public void costoPromocionAxB() {
 		assertEquals(promocionAxB.getCosto(), atraccion1.getCosto() + atraccion2.getCosto(), 0);
@@ -263,10 +278,10 @@ public class PromocionesTest {
 	public void esPromocionPromocionAxB() {
 		assertTrue(promocionAxB.esPromocion());
 	}
-	
+
 	@Test
 	public void nombrePromocionAxBTest() {
-		assertEquals("Pack COMEDIA",promocionAxB.getNombre());
+		assertEquals("Pack COMEDIA", promocionAxB.getNombre());
 	}
 
 }

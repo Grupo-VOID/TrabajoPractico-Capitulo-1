@@ -75,10 +75,10 @@ public class AtraccionesTest {
 	public void devuelveNombre() {
 		assertEquals("Barco Pirata", atraccion.getNombre());
 	}
-	
+
 	@Test
 	public void atraccionesIncluidasTest() {
-		Atraccion[] atraccionEsperada = {atraccion};
+		Atraccion[] atraccionEsperada = { atraccion };
 		assertArrayEquals(atraccionEsperada, atraccion.atraccionesIncluidas());
 	}
 }
