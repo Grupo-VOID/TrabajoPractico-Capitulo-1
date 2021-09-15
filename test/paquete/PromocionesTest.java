@@ -20,21 +20,29 @@ public class PromocionesTest {
 	@Test
 	public void costoDeLasPromociones() {
 
-		//Procentual
-		
+		// Procentual
+
 		double costoPromoPorcentual = parque.getPromociones().get(0).getCosto();
-		double costoPruebaPorcentual = parque.getAtracciones().get(9).getCosto() + parque.getAtracciones().get(10).getCosto();
+		double costoPruebaPorcentual = parque.getAtracciones().get(9).getCosto()
+				+ parque.getAtracciones().get(10).getCosto();
 		costoPruebaPorcentual = costoPruebaPorcentual * (1.00 - 20 / 100.00);
 
 		assertEquals(costoPromoPorcentual, costoPruebaPorcentual, 0);
-		
-		//AxB
-		
+
+		// AxB
+
 		double costoPromoAxB = parque.getPromociones().get(2).getCosto();
-		double costoPruebaAxB = parque.getAtracciones().get(8).getCosto() + parque.getAtracciones().get(2).getCosto();
+		double costoPruebaAxB = parque.getAtracciones().get(8).getCosto() + parque.getAtracciones().get(3).getCosto();
 
 		assertEquals(costoPromoAxB, costoPruebaAxB, 0);
-		
+
+		// Absoluta
+
+		double costoPromoAbsoluta = parque.getPromociones().get(1).getCosto();
+		double costoPruebaAbsoluta = parque.getAtracciones().get(6).getCosto()
+				+ parque.getAtracciones().get(4).getCosto() - 10;
+
+		assertEquals(costoPromoAbsoluta, costoPruebaAbsoluta, 0);
 	}
 
 }
