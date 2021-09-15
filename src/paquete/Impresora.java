@@ -7,7 +7,11 @@ import java.io.PrintWriter;
 public abstract class Impresora {
 
 	public static void imprimir(Usuario persona) throws IOException {
-		FileWriter archivo = new FileWriter("salida/salida" + persona.getNombre() + ".txt");
+		imprimir(persona,"salida");
+	}
+	
+	public static void imprimir(Usuario persona,String nombre) throws IOException {
+		FileWriter archivo = new FileWriter (nombre +"/salida"+persona.getNombre() + ".txt");
 		PrintWriter salida = new PrintWriter(archivo);
 
 		salida.println("Usuario: " + persona.getNombre() + "\nTemática Favorita: " + persona.getTematica()
