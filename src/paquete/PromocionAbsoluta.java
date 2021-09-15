@@ -2,11 +2,11 @@ package paquete;
 
 public class PromocionAbsoluta extends Promocion {
 
-	private int descuento = 0;
+	private double descuento = 0;
 	private Atraccion atraccionUno;
 	private Atraccion atraccionDos;
 
-	public PromocionAbsoluta(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, int descuento) {
+	public PromocionAbsoluta(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, double descuento) {
 		super(tematica);
 		this.atraccionUno = atraccion1;
 		this.atraccionDos = atraccion2;
@@ -44,10 +44,10 @@ public class PromocionAbsoluta extends Promocion {
 
 	@Override
 	public String toString() {
-		return ("Si compra la atraccion " + this.atraccionUno.getNombre()
+		return (this.getNombre()+": Si compra la atraccion " + this.atraccionUno.getNombre()
 				+ " y la atraccion " + this.atraccionDos.getNombre()
 				+ ", obtiene un descuento de " + this.descuento + " sobre el costo total."
-				+ "\n Costo Total= " + this.getCosto()
-				+ "\n Duracion Total= " + this.getTiempo());
+				+ "\n Costo Total= $" + this.getCosto()
+				+ "\n Duracion Total= " + this.getTiempo() + " horas");
 	}
 }

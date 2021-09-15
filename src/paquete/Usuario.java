@@ -6,14 +6,14 @@ public class Usuario {
 
 	private final String NOMBRE;
 	private final TipoAtraccion TEMATICA_FAVORITA;
-	private final int MONEDAS_INICIALES;
-	private int monedasDisponibles;
+	private final double MONEDAS_INICIALES;
+	private double monedasDisponibles;
 	private final double TIEMPO_INICIAL;
 	private double tiempoDisponible;
 	protected Itinerario itinerarioUsuario;
 	private ArrayList<Atraccion> listaAtracciones = new ArrayList<Atraccion>();
 
-	public Usuario(String nombre, TipoAtraccion tematica, int monedas, double tiempo) {
+	public Usuario(String nombre, TipoAtraccion tematica, double monedas, double tiempo) {
 		this.NOMBRE = nombre;
 		this.TEMATICA_FAVORITA = tematica;
 		this.MONEDAS_INICIALES = monedas;
@@ -31,7 +31,7 @@ public class Usuario {
 		return TEMATICA_FAVORITA;
 	}
 
-	public int getMonedasDisponibles() {
+	public double getMonedasDisponibles() {
 		return monedasDisponibles;
 	}
 
@@ -42,8 +42,8 @@ public class Usuario {
 	public ArrayList<Atraccion> getListaAtracciones() {
 		return listaAtracciones;
 	}
-	
-	public int monedasUtilizadas() {
+
+	public double monedasUtilizadas() {
 		return this.MONEDAS_INICIALES - this.monedasDisponibles;
 	}
 
@@ -51,9 +51,17 @@ public class Usuario {
 		this.monedasDisponibles -= sugerencia.getCosto();
 		this.tiempoDisponible -= sugerencia.getTiempo();
 		this.itinerarioUsuario.agregarAdquirible(sugerencia);
-		for(Atraccion i : sugerencia.atraccionesIncluidas()) {
+		for (Atraccion i : sugerencia.atraccionesIncluidas()) {
 			listaAtracciones.add(i);
 		}
 		sugerencia.comprar();
+	}
+
+	public double getMonedasIniciales() {
+		return MONEDAS_INICIALES;
+	}
+
+	public double getTiempoInicial() {
+		return TIEMPO_INICIAL;
 	}
 }

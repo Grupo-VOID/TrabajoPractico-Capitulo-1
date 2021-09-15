@@ -5,7 +5,7 @@ public class PromocionPorcentual extends Promocion {
 	private double porcentajeDescuento = 0;
 	private Atraccion atraccionUno, atraccionDos;
 
-	public PromocionPorcentual(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, int porcentajeDescuento) {
+	public PromocionPorcentual(TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, double porcentajeDescuento) {
 		super(tematica);
 		this.atraccionUno = atraccion1;
 		this.atraccionDos = atraccion2;
@@ -29,12 +29,12 @@ public class PromocionPorcentual extends Promocion {
 
 	@Override
 	public String toString() {
-		return ("Si compra la atraccion " + this.atraccionUno.getNombre() 
+		return (this.getNombre()+": Si compra la atraccion " + this.atraccionUno.getNombre() 
 				+ " y la atraccion " + this.atraccionDos.getNombre()
 				+ ", se ofrece un descuento del " + this.porcentajeDescuento
 				+ "% sobre el costo total."
-				+ "\n Costo Total con descuento= " + this.getCosto()
-				+ "\n Duracion Total= " + this.getTiempo());
+				+ "\n Costo Total con descuento= $" + this.getCosto()
+				+ "\n Duracion Total= " + this.getTiempo() + " horas");
 	}
 
 	@Override
