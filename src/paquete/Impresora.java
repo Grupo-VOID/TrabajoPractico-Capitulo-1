@@ -14,7 +14,7 @@ public abstract class Impresora {
 		FileWriter archivo = new FileWriter (nombre +"/salida"+persona.getNombre() + ".txt");
 		PrintWriter salida = new PrintWriter(archivo);
 
-		salida.println("Usuario: " + persona.getNombre() + "\nTemática Favorita: " + persona.getTematica()
+		salida.println("Usuario: " + persona.getNombre() + "\nTematica Favorita: " + persona.getTematica()
 				+ "\nDinero inicial: $" + persona.getMonedasIniciales() + "\nTiempo inicial: "
 				+ persona.getTiempoInicial() + " horas\n\n");
 

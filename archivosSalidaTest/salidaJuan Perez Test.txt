@@ -1,0 +1,12 @@
+Usuario: Juan Perez
+Tematica Favorita: COMEDIA
+Dinero inicial: $50.0
+Tiempo inicial: 25.0 horas
+
+
+Las atracciones compradas por el usuario Juan Perez son:
+	Pack COMEDIA
+	El Marginal
+	Breaking Bad
+El costo total es: $37.5
+El tiempo total es: 19.0 horas
