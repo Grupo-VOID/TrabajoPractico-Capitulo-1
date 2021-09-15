@@ -5,11 +5,11 @@ import java.util.*;
 
 public class LectorArchivos {
 
-	public static LinkedList<Usuario> GenerarUsuarios() {
+	public static LinkedList<Usuario> GenerarUsuarios(String rutaEntrada) {
 		LinkedList<Usuario> listaUsuarios = new LinkedList<Usuario>();
 		Scanner archivo = null;
 		try {
-			archivo = new Scanner(new File("entrada/usuarios.txt"));
+			archivo = new Scanner(new File(rutaEntrada));
 			while (archivo.hasNext()) {
 				String linea = archivo.nextLine();
 				String datosUsuario[] = linea.split(",");
@@ -27,11 +27,11 @@ public class LectorArchivos {
 		return listaUsuarios;
 	}
 
-	public static LinkedList<Adquirible> GenerarAtracciones() {
+	public static LinkedList<Adquirible> GenerarAtracciones(String rutaEntrada) {
 		LinkedList<Adquirible> listaAtracciones = new LinkedList<Adquirible>();
 		Scanner archivo = null;
 		try {
-			archivo = new Scanner(new File("entrada/atracciones.txt"));
+			archivo = new Scanner(new File(rutaEntrada));
 			while (archivo.hasNext()) {
 				String linea = archivo.nextLine();
 				String datosAtracciones[] = linea.split(",");
@@ -50,11 +50,11 @@ public class LectorArchivos {
 		return listaAtracciones;
 	}
 
-	public static LinkedList<Adquirible> GenerarPromociones(ParqueAtracciones parque) {
+	public static LinkedList<Adquirible> GenerarPromociones(ParqueAtracciones parque, String rutaEntrada) {
 		LinkedList<Adquirible> listaPromociones = new LinkedList<Adquirible>();
 		Scanner archivo = null;
 		try {
-			archivo = new Scanner(new File("entrada/promociones.txt"));
+			archivo = new Scanner(new File(rutaEntrada));
 			while (archivo.hasNext()) {
 				String linea = archivo.nextLine();
 				String datosPromociones[] = linea.split(",");
