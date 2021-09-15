@@ -12,7 +12,7 @@ public abstract class Impresora {
 
 		salida.println("Usuario: " + persona.getNombre() + "\nTemática Favorita: " + persona.getTematica()
 				+ "\nDinero inicial: $" + persona.getMonedasIniciales() + "\nTiempo inicial: "
-				+ persona.getTiempoDisponible() + " horas\n\n");
+				+ persona.getTiempoInicial() + " horas\n\n");
 
 		if (persona.itinerarioUsuario.getListaAtracciones().isEmpty())
 			salida.println("El usuario " + persona.getNombre() + " no ha realizado compras.");
@@ -21,8 +21,8 @@ public abstract class Impresora {
 			for (Adquirible lista : persona.itinerarioUsuario.getListaAtracciones()) {
 				salida.println("\t" + lista.getNombre());
 			}
-			salida.println("El tiempo total es: " + persona.itinerarioUsuario.getTiempoTotal() + " horas");
 			salida.println("El costo total es: $" + persona.itinerarioUsuario.getCostoMonedas());
+			salida.println("El tiempo total es: " + persona.itinerarioUsuario.getTiempoTotal() + " horas");
 		}
 		salida.close();
 	}
