@@ -36,7 +36,7 @@ public class Atraccion implements Adquirible {
 	public int getCupoMaximo() {
 		return CUPO_MAXIMO;
 	}
-	
+
 	public String getNombre() {
 		return NOMBRE;
 	}
@@ -50,15 +50,15 @@ public class Atraccion implements Adquirible {
 	}
 
 	public Atraccion[] atraccionesIncluidas() {
-		Atraccion [] nombre = {this};
+		Atraccion[] nombre = { this };
 		return nombre;
 	}
-	
+
 	@Override
 	public boolean esPromocion() {
 		return false;
 	}
-	
+
 	@Override
 	public String toString() {
 		return String.format("Atracción: " + this.NOMBRE 

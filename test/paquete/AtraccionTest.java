@@ -16,7 +16,7 @@ public class AtraccionTest {
 	public void setup() {
 		atraccion = new Atraccion("Barco Pirata", TipoAtraccion.COMEDIA, 20, 3.5, 20);
 	}
-	
+
 	@Test
 	public void seCreaCorrectamente() {
 		assertNotNull(atraccion);

@@ -64,7 +64,7 @@ public class SugerenciaTest {
 			assertTrue(Sugerencia.validarSugerencia(usuarioRico, adquirible));
 		}
 	}
-	
+
 	@Test
 	public void noSugierePorFaltaDeTiempoEnUsuario() {
 		Collections.sort(catalogo, new Sugerencia(usuarioSinTiempo));

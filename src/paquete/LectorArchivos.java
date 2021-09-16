@@ -60,7 +60,6 @@ public class LectorArchivos {
 				String datosPromociones[] = linea.split(",");
 				TipoPromocion tipoPromo = TipoPromocion.valueOf(datosPromociones[0].toUpperCase());
 				TipoAtraccion tematica = TipoAtraccion.valueOf(datosPromociones[1].toUpperCase());
-				// El método obtenerAtraccPorNombre no se podrá colocar acá?
 				Atraccion atraccion1 = (Atraccion) parque.obtenerAtraccionPorNombre(datosPromociones[3]);
 				Atraccion atraccion2 = (Atraccion) parque.obtenerAtraccionPorNombre(datosPromociones[4]);
 				if (tipoPromo == TipoPromocion.ABSOLUTA) {
@@ -70,7 +69,8 @@ public class LectorArchivos {
 				}
 				if (tipoPromo == TipoPromocion.PORCENTUAL) {
 					int datoRelativo = Integer.parseInt(datosPromociones[2]);
-					PromocionPorcentual promocion = new PromocionPorcentual(tematica, atraccion1, atraccion2, datoRelativo);
+					PromocionPorcentual promocion = new PromocionPorcentual(tematica, atraccion1, atraccion2,
+							datoRelativo);
 					listaPromociones.add(promocion);
 				}
 				if (tipoPromo == TipoPromocion.AXB) {

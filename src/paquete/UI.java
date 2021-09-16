@@ -35,7 +35,7 @@ public abstract class UI {
 			}
 		} while (op != "1");
 	}
-	
+
 	public static void compraSucesiva(ParqueAtracciones parque) throws IOException {
 		System.out.println("::Bienvenido al Parque VOID::\n");
 		System.out.println("::Sistema de compras::\n");
@@ -82,7 +82,6 @@ public abstract class UI {
 						+ usuarioTemp.getTematica() + "\n_Dinero disponible: $" + usuarioTemp.getMonedasDisponibles()
 						+ "\n_Tiempo disponible: " + usuarioTemp.getTiempoDisponible() + " horas\n");
 				Collections.sort(parque.getCatalogo(), new Sugerencia(usuarioTemp));
-				// parque.mostrarCatalogo();
 				mostrarSugerencia(parque, usuarioTemp);
 				Impresora.imprimir(usuarioTemp);
 				parque.getUsuarios().remove(usuarioTemp);
