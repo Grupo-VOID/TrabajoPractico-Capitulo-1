@@ -34,7 +34,7 @@ public class LectorArchivosTest {
 	@Test
 	public void comparacionDosListasIgualesUsuarios() {
 
-		LinkedList<Usuario> listaUsuariosPrueba = LectorArchivos.GenerarUsuarios("archivosTest/Usuarios.txt");
+		LinkedList<Usuario> listaUsuariosPrueba = LectorArchivos.GenerarUsuarios("archivosEntradaTest/Usuarios.txt");
 
 		for (int i = 0; i < listaDeUsuarios.size(); i++) {
 			Usuario usuario1 = listaDeUsuarios.get(i);
@@ -58,7 +58,7 @@ public class LectorArchivosTest {
 	public void comparacionDosListasIgualesAtracciones() {
 
 		LinkedList<Adquirible> listaAtraccionesPrueba = LectorArchivos
-				.GenerarAtracciones("archivosTest/Atracciones.txt");
+				.GenerarAtracciones("archivosEntradaTest/Atracciones.txt");
 
 		for (int i = 0; i < listaDeUsuarios.size(); i++) {
 			Adquirible atraccion1 = listaDeAtracciones.get(i);
@@ -84,7 +84,7 @@ public class LectorArchivosTest {
 		ParqueAtracciones parquePrueba = new ParqueAtracciones();
 		parquePrueba.agregarAtracciones(listaDeAtracciones);
 		LinkedList<Adquirible> listaPromocionesPrueba = LectorArchivos.GenerarPromociones(parquePrueba,
-				"archivosTest/Promociones.txt");
+				"archivosEntradaTest/Promociones.txt");
 
 		for (int i = 0; i < listaDePromociones.size(); i++) {
 			Adquirible promo1 = listaDePromociones.get(i);
